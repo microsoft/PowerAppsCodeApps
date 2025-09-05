@@ -334,7 +334,7 @@ Need a `src/PowerProvider.tsx` with the following content:
 
 ```typescript
 import React from 'react';
-import { PowerProvider as Provider } from '@pa-client/power-code-sdk';
+import { PowerProvider as Provider } from '@microsoft/power-apps';
 
 interface PowerProviderProps {
   children: React.ReactNode;

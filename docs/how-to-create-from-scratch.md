@@ -131,7 +131,7 @@ This guide covers:
 5. **Install** the Power SDK using:
 
    ```powershell
-   npm install --save-dev "@pa-client/power-code-sdk@https://github.com/microsoft/PowerAppsCodeApps/releases/download/v0.0.4/7-31-pa-client-power-code-sdk-0.0.1.tgz"
+   npm install --save-dev "@microsoft/power-apps@https://github.com/microsoft/PowerAppsCodeApps/releases/download/v0.0.4/7-31-pa-client-power-code-sdk-0.0.1.tgz"
    ```
 > [!IMPORTANT] This SDK is currently not yet available on `npmjs.com` and must be installed from the GitHub release.
 
