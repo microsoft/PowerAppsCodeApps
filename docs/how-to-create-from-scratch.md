@@ -140,7 +140,14 @@ This guide covers:
    "dev": "start pac code run && vite",
    ```
 
-   Save the updated `pacakage.json`.
+   > [!NOTE]  
+   > If you are developing on macOS, use:
+   >
+   > ```json
+   > "dev": "pac code run & vite"
+   > ```
+
+   Save the updated `package.json`.
 
 6. **Add a new file** under the `src` folder named `PowerProvider.tsx` and grab the code from [PowerProvider.tsx](./assets/PowerProvider.tsx)
 
