@@ -128,7 +128,7 @@ This template uses mock data by default. Follow these guides to connect to real 
    import { mockUsers, mockCalendarEvents, mockEmails } from '../mockData/office365Data';
    
    // After (real connector)
-   import { useConnector } from '@pa-client/power-code-sdk';
+   import { useConnector } from '@microsoft/power-apps';
    
    // Use Office 365 connector
    const office365 = useConnector('office365users');
@@ -180,7 +180,7 @@ This template uses mock data by default. Follow these guides to connect to real 
    import { mockProjects, mockTasks, mockEmployees } from '../mockData/sqlData';
    
    // After (real connector)
-   import { useConnector } from '@pa-client/power-code-sdk';
+   import { useConnector } from '@microsoft/power-apps';
    
    const sqlConnector = useConnector('sql');
    ```

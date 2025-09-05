@@ -1,4 +1,4 @@
-import { initialize } from "@pa-client/power-code-sdk/lib/Lifecycle";
+import { initialize } from "@microsoft/power-apps/lib/Lifecycle";
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 
