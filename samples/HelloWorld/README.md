@@ -16,6 +16,7 @@ pac auth create --environment {environment id}
 ## 3. Install dependencies
 
 ```bash
+cd samples/HelloWorld
 npm install
 pac code init
 ```
