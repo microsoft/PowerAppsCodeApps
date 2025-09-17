@@ -1,4 +1,4 @@
-import { initialize } from "@microsoft/power-apps/lib/Lifecycle";
+import { initialize } from "@microsoft/power-apps/app";
 import { useEffect, ReactNode } from "react";
 
 interface PowerProviderProps {
