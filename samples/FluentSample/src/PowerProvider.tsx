@@ -1,6 +1,5 @@
-import { initialize } from "@microsoft/power-apps/lib/Lifecycle";
-import { useEffect } from "react";
-import type { ReactNode } from "react";
+import { initialize } from "@microsoft/power-apps/app";
+import { useEffect, type ReactNode } from "react";
 
 interface PowerProviderProps {
     children: ReactNode;
