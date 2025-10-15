@@ -17,9 +17,8 @@ export default defineConfig({
           // Split vendor libraries into separate chunks
           'react-vendor': ['react', 'react-dom'],
           'router-vendor': ['react-router-dom'],
-          'fluent-components': ['@fluentui/react-components'],
-          'fluent-icons': ['@fluentui/react-icons'],
-          'fluent-tokens': ['@fluentui/tokens'],
+          // Combine Fluent UI packages to avoid circular dependencies
+          'fluent-ui': ['@fluentui/react-components', '@fluentui/react-icons', '@fluentui/tokens'],
         }
       }
     }
