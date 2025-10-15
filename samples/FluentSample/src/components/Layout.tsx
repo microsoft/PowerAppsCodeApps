@@ -420,7 +420,7 @@ export default function Layout({ children }: LayoutProps) {
         {/* Center Section: App Title with Logo */}
         <div className={styles.headerCenter}>
           <img 
-            src="/PowerApps_scalable.svg" 
+            src="./PowerApps_scalable.svg" 
             alt="Power Apps" 
             style={{ 
               width: '24px', 
