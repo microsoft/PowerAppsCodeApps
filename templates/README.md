@@ -1,4 +1,4 @@
-# 🪄 Power Apps code app templates
+# ⚡ Power Apps code app templates
 
 You can quickly get started with code apps by creating an app using one of our starter templates.
 
@@ -22,4 +22,4 @@ pac code init --environment [environmentId] --displayName [appDisplayName]
 npm run dev
 ```
 
-### _More coming soon!_
+### ...more coming soon!
