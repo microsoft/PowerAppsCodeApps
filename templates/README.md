@@ -2,11 +2,11 @@
 
 You can quickly get started with code apps by creating an app using one of our starter templates.
 
-To do this, you can use a tool like [degit](https://github.com/Rich-Harris/degit) to scaffold your app.
+To do this, you can use a tool like [degit](https://github.com/Rich-Harris/degit) to scaffold your app. Instructions for each of the templates are below.
 
-Currently, the only template is the "recommended" template. Instructions to install it are below.
+## Templates
 
-## Template - recommended
+### recommended
 [recommended](recommended/README)
 
 A React-based template with common libraries pre-configured.
@@ -22,3 +22,4 @@ pac code init --environment [environmentId] --displayName [appDisplayName]
 npm run dev
 ```
 
+### _More coming soon!_
