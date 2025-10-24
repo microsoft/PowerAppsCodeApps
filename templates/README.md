@@ -7,7 +7,7 @@ To do this, you can use a tool like [degit](https://github.com/Rich-Harris/degit
 ## Templates
 
 ### recommended
-[recommended](recommended/README)
+[recommended](recommended/README.md)
 
 A React-based template with common libraries pre-configured.
 
