@@ -9,7 +9,7 @@ Designed for common app scenarios, easy extensibility, and minimal setup.
 ## Highlights
 - **⚡ Modern tooling** - Vite, Typescript, and React
 - **🎨 Out-of-box styling** - Tailwind, shadcn/ui components, and theming out of the box
-- **🔋 Batteries included** - Pre-wired set of curated libraries for common scenarios
+- **🔋 Batteries included** - Curated libraries pre-wired for common scenarios
 - **✅ Standard patterns** - Industry standard patterns and practices
 - **🤖 Agent friendly** - Optimized for use with coding agents
 ---
