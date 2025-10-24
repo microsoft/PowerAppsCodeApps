@@ -1,12 +1,12 @@
-# Power Apps - Recommended Template
+# Power Apps Template - starter
 
 An opinionated **Vite + TypeScript + React** starter template for building Power Apps code apps.
 
-Designed for common app scenarios, sensible defaults, and easy extensibility.
+Designed for common app scenarios, easy extensibility, and minimal setup.
 
 ---
 
-## ✨ Highlights
+## Highlights
 - **⚡ Modern tooling** - Vite, Typescript, and React
 - **🎨 Out-of-box styling** - Tailwind, shadcn/ui components, and theming out of the box
 - **🔋 Batteries included** - Pre-wired set of curated libraries for common scenarios

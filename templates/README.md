@@ -4,15 +4,17 @@ You can quickly get started with code apps by creating an app using one of our s
 
 To do this, you can use a tool like [degit](https://github.com/Rich-Harris/degit) to scaffold your app. Instructions for each of the templates are below.
 
+We recommend using the 'starter' template for most use cases.
+
 ## Templates
 
-### recommended
-[recommended](recommended/README.md)
+### starter
+[starter](starter/README.md)
 
-A React-based template with common libraries pre-configured.
+A starter template with common libraries pre-configured.
 
 ```
-npx degit microsoft/PowerAppsCodeApps/templates/recommended#main my-app
+npx degit microsoft/PowerAppsCodeApps/templates/starter#main my-app
 cd my-app
 
 npm install
