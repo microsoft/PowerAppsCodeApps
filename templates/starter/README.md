@@ -14,7 +14,7 @@ Designed for common app scenarios, easy extensibility, and minimal setup.
 - **Agent friendly** - Optimized for use with coding agents
 ---
 
-## 🗂 Pre-installed libraries
+## Pre-installed libraries
 - [Tailwind CSS](https://tailwindcss.com/) - utility-first CSS framework
 - [shadcn/ui](https://ui.shadcn.com/) - pre-installed UI components
 - [React Router](https://reactrouter.com/) - pages, routing
