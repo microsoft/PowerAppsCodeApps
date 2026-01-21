@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { QueryClient } from '@tanstack/react-query'
-import PowerProvider from './PowerProvider.tsx'
 import { ThemeProvider } from './contexts/ThemeContext.tsx'
 import { ThemedApp } from './components/ThemedApp';
 import './index.css'
@@ -18,10 +17,8 @@ export const queryClient = new QueryClient({
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <PowerProvider>
-      <ThemeProvider>
-        <ThemedApp />
-      </ThemeProvider>
-    </PowerProvider>
+    <ThemeProvider>
+      <ThemedApp />
+    </ThemeProvider>
   </StrictMode>,
 )
