@@ -44,6 +44,7 @@ export function powerApps(): Plugin {
     configureServer(server) {
       printLocalPlayUrl(server);
       servePowerConfig(server);
+      watchPowerConfig(server);
     },
   };
 }
@@ -85,18 +86,16 @@ function getPowerConfig(server: ViteDevServer): PowerConfig {
     return cachedPowerConfig;
   }
 
-  const projectRoot = server.config.root;
-  const configPath = path.join(projectRoot, "power.config.json");
+  const configPath = path.join(server.config.root, "power.config.json");
 
   try {
     const configContent = fs.readFileSync(configPath, "utf-8");
     const parsed = JSON.parse(configContent);
 
     if (!isPowerConfig(parsed)) {
-      server.config.logger.error(
-        "[powerApps] Invalid power.config.json: missing or invalid environmentId",
+      throw new Error(
+        "Invalid power.config.json structure. Missing environmentId.",
       );
-      throw new Error("Invalid power.config.json structure");
     }
 
     cachedPowerConfig = parsed;
@@ -104,31 +103,48 @@ function getPowerConfig(server: ViteDevServer): PowerConfig {
   } catch (error) {
     // Handle specific error types
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      server.config.logger.error(
-        pc.red(`[powerApps] power.config.json not found at: ${configPath}`),
+      throw new Error(
+        `Missing file. Ensure you have run 'pac code init' first. power.config.json expected at ${configPath}.`,
       );
-      server.config.logger.warn(
-        pc.yellow(
-          "[powerApps] Ensure you have run 'pac code init' first.",
-        ),
-      );
-    } else if (error instanceof SyntaxError) {
-      server.config.logger.error(
-        pc.red(`[powerApps] Invalid JSON in power.config.json: ${error.message}`),
-      );
-    } else {
-      server.config.logger.error(
-        pc.red(`[powerApps] Error loading power.config.json: ${error}`),
-      );
+    }
+    if (error instanceof SyntaxError) {
+      throw new Error(`Invalid JSON in power.config.json: ${error.message}`);
     }
     throw error;
   }
 }
 
+function watchPowerConfig(server: ViteDevServer) {
+  const configPath = path.join(server.config.root, "power.config.json");
+  server.watcher.add(configPath);
+  server.watcher.on("change", (file) => {
+    if (file === configPath) {
+      server.config.logger.info(
+        pc.yellow(
+          "[powerApps] power.config.json changed, restarting server...",
+        ),
+      );
+      // Clear cache so new config is loaded
+      cachedPowerConfig = null;
+      server.restart();
+    }
+  });
+}
+
 // Prints the apps.powerapps.com play URL to the console
 function printLocalPlayUrl(server: ViteDevServer) {
   server.httpServer?.on("listening", () => {
-    const powerConfig = getPowerConfig(server);
+    let powerConfig: PowerConfig;
+    try {
+      powerConfig = getPowerConfig(server);
+    } catch (error) {
+      server.config.logger.error(
+        pc.red(
+          `[powerApps] Error loading power.config.json:\n            ⤷${(error as Error).message ?? error}`,
+        ),
+      );
+      return;
+    }
     const environmentId = powerConfig.environmentId;
     if (!environmentId) {
       server.config.logger.error(
@@ -190,7 +206,19 @@ function servePowerConfig(server: ViteDevServer) {
 
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
-    const powerConfig = getPowerConfig(server);
+    let powerConfig: PowerConfig;
+    try {
+      powerConfig = getPowerConfig(server);
+    } catch (error) {
+      server.config.logger.error(
+        pc.red(
+          `[powerApps] Error serving power.config.json:\n            ⤷${(error as Error).message ?? error}`,
+        ),
+      );
+      // Player can sometimes work without power.config.json
+      res.end();
+      return;
+    }
     res.end(JSON.stringify(powerConfig));
   });
 }
