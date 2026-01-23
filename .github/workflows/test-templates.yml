@@ -1,0 +1,48 @@
+name: Template Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies (tests)
+        working-directory: tests
+        run: npm ci
+
+      - name: Install dependencies (vite template)
+        working-directory: templates/vite
+        run: npm ci
+
+      - name: Install dependencies (starter template)
+        working-directory: templates/starter
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests
+        working-directory: tests
+        run: npm run test:all
+        env:
+          CI: true
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: tests/playwright-report/
+          retention-days: 30

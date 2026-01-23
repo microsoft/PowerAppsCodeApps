@@ -1,7 +1,7 @@
 {
   "name": "powerappscodeapps-tests",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "test:vite": "playwright test --project=vite",
     "test:starter": "playwright test --project=starter",
