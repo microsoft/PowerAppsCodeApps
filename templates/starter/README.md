@@ -18,7 +18,8 @@ Designed for common app scenarios, easy extensibility, and minimal setup.
 - [Tailwind CSS](https://tailwindcss.com/) - utility-first CSS framework
 - [shadcn/ui](https://ui.shadcn.com/) - pre-installed UI components
 - [React Router](https://reactrouter.com/) - pages, routing
-- [Tanstack Query](https://tanstack.com/query/docs) - data fetching, state management
-- [Tanstack Table](https://tanstack.com/query/docs) - interactive tables, datagrids
+- [Zustand](https://zustand.docs.pmnd.rs/) - state management
+- [Tanstack Query](https://tanstack.com/query/latest) - data fetching, state management
+- [Tanstack Table](https://tanstack.com/table/latest) - interactive tables, datagrids
 - [Lucide](https://lucide.dev/) - icons
   
