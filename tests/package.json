@@ -1,0 +1,12 @@
+{
+  "name": "powerappscodeapps-tests",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^24.10.9"
+  }
+}

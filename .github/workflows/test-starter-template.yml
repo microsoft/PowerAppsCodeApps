@@ -1,0 +1,19 @@
+name: Test Starter Template
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'templates/starter/**'
+      - 'tests/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'templates/starter/**'
+      - 'tests/**'
+
+jobs:
+  test-starter-template:
+    uses: ./.github/workflows/test-template.yml
+    with:
+      template: starter
