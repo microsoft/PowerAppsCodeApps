@@ -23,11 +23,11 @@ jobs:
 
       - name: Install dependencies (vite template)
         working-directory: templates/vite
-        run: npm ci
+        run: npm install
 
       - name: Install dependencies (starter template)
         working-directory: templates/starter
-        run: npm ci
+        run: npm install
 
       - name: Install Playwright browsers
         working-directory: tests
