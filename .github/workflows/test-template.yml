@@ -1,4 +1,4 @@
-name: Test Template
+name: Test Template(s)
 
 on:
   workflow_call:
@@ -50,7 +50,7 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: tests
-        run: npm run test:${{ inputs.template }}
+        run: npm run test
         env:
           CI: true
           TEMPLATE: ${{ inputs.template }}
@@ -60,5 +60,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report-${{ inputs.template }}-template
-          path: tests/playwright-report/
+          path: tests/playwright-report/index.html
           retention-days: 30

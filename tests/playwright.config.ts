@@ -2,10 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 import path from "path";
 
 const isCI = !!process.env.CI;
-if (!process.env.TEMPLATE) {
-  throw new Error("TEMPLATE environment variable is not set to template.");
-}
-const template = process.env.TEMPLATE as "vite" | "starter"; // Set to 'vite' or 'starter' to run only one
+const template: "vite" | "starter" = process.env.TEMPLATE; // Set to 'vite' or 'starter' to run only one
 
 const webServers = {
   vite: {
@@ -24,6 +21,25 @@ const webServers = {
   },
 };
 
+const projects = {
+  vite: {
+    name: "vite",
+    testMatch: "vite.spec.ts",
+    use: {
+      ...devices["Desktop Chrome"],
+      baseURL: "http://localhost:4173",
+    },
+  },
+  starter: {
+    name: "starter",
+    testMatch: "starter.spec.ts",
+    use: {
+      ...devices["Desktop Chrome"],
+      baseURL: "http://localhost:4174",
+    },
+  },
+};
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -34,23 +50,6 @@ export default defineConfig({
   use: {
     trace: "on-first-retry",
   },
-  projects: [
-    {
-      name: "vite",
-      testMatch: "vite.spec.ts",
-      use: {
-        ...devices["Desktop Chrome"],
-        baseURL: "http://localhost:4173",
-      },
-    },
-    {
-      name: "starter",
-      testMatch: "starter.spec.ts",
-      use: {
-        ...devices["Desktop Chrome"],
-        baseURL: "http://localhost:4174",
-      },
-    },
-  ],
-  webServer: webServers[template],
+  projects: projects[template] ? [projects[template]] : Object.values(projects),
+  webServer: webServers[template] ?? Object.values(webServers),
 });

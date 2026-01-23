@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "test:vite": "playwright test --project=vite",
-    "test:starter": "playwright test --project=starter",
-    "test:all": "playwright test"
+    "test": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
