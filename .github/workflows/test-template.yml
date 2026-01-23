@@ -1,10 +1,12 @@
-name: Template Tests
+name: Test Template
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_call:
+    inputs:
+      template:
+        required: true
+        type: string
+        description: 'Template name (e.g., vite, starter)'
 
 jobs:
   test:
@@ -21,12 +23,8 @@ jobs:
         working-directory: tests
         run: npm ci
 
-      - name: Install dependencies (vite template)
-        working-directory: templates/vite
-        run: npm install
-
-      - name: Install dependencies (starter template)
-        working-directory: templates/starter
+      - name: Install dependencies (template)
+        working-directory: templates/${{ inputs.template }}
         run: npm install
 
       - name: Install Playwright browsers
@@ -35,7 +33,7 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: tests
-        run: npm run test:all
+        run: npm run test:${{ inputs.template }}
         env:
           CI: true
 
@@ -43,6 +41,6 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
+          name: playwright-report-${{ inputs.template }}-template
           path: tests/playwright-report/
           retention-days: 30

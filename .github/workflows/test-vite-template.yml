@@ -1,0 +1,19 @@
+name: Test Vite Template
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'templates/vite/**'
+      - 'tests/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'templates/vite/**'
+      - 'tests/**'
+
+jobs:
+  test:
+    uses: ./.github/workflows/test-template.yml
+    with:
+      template: vite
