@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "test:vite": "playwright test --project=vite",
+    "test:starter": "playwright test --project=starter",
     "test:all": "playwright test"
   },
   "devDependencies": {

@@ -19,16 +19,31 @@ export default defineConfig({
       testMatch: 'vite.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: isCI ? 'http://localhost:4173' : 'http://localhost:5173',
+        baseURL: 'http://localhost:4173',
+      },
+    },
+    {
+      name: 'starter',
+      testMatch: 'starter.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'http://localhost:4174',
       },
     },
   ],
   webServer: [
     {
       name: 'vite-template',
-      command: isCI ? 'npm run build && npm run preview' : 'npm run dev',
+      command: 'npm run build && npm run preview -- --port 4173',
       cwd: path.resolve(__dirname, '../templates/vite'),
-      url: isCI ? 'http://localhost:4173' : 'http://localhost:5173',
+      url: 'http://localhost:4173',
+      reuseExistingServer: !isCI,
+    },
+    {
+      name: 'starter-template',
+      command: 'npm run build && npm run preview -- --port 4174',
+      cwd: path.resolve(__dirname, '../templates/starter'),
+      url: 'http://localhost:4174',
       reuseExistingServer: !isCI,
     },
   ],
