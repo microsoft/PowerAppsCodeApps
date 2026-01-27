@@ -1,0 +1,10 @@
+# lock files not to be included in templates
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+bun.lockb
+# prevent accidental inclusion of `pac code init` files
+power.config.json
+.cursor/
+.github/
