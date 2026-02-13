@@ -1,6 +1,6 @@
-# 🚀 Power Apps code apps (preview) 
+# 🚀 Power Apps code apps
 
-Code apps are available in preview. Documentation is available on [learn.microsoft.com](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/). This repo contains source for code app examples. 
+Code apps documentation is available on [learn.microsoft.com](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/). This repo contains source for code app examples. 
 
 # 📄 License 
 
