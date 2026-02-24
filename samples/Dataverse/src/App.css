@@ -1,0 +1,482 @@
+/**
+ * App Styles for Dataverse Demo
+ * Modern theme using color scheme from plan.md
+ *
+ * Colors:
+ * - #c5b4e3 (light purple)
+ * - #d59ed7 (medium purple)
+ * - #c03bc4 (bright magenta/purple)
+ * - #702573 (dark purple)
+ * - #000000 (black)
+ * - #ffffff (white)
+ * - #f4f3f5 (off-white/light gray)
+ */
+
+/* Root container */
+.app-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  font-family: 'Segoe UI', 'Segoe Sans Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, #702573 0%, #c03bc4 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(112, 37, 115, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(192, 59, 196, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+header h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.75rem;
+  font-family: 'Segoe UI', 'Segoe Sans Display', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+header p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+
+/* Error message */
+.error-message {
+  background: linear-gradient(135deg, #fee 0%, #fdd 100%);
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(204, 51, 51, 0.1);
+}
+
+/* Content grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section styling */
+section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid rgba(197, 180, 227, 0.3);
+  box-shadow: 0 4px 20px rgba(112, 37, 115, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(197, 180, 227, 0.4);
+}
+
+.section-header h2 {
+  margin: 0;
+  color: #702573;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', 'Segoe Sans Display', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.header-with-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.unsaved-label {
+  color: #c03bc4;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(192, 59, 196, 0.08) 0%, rgba(192, 59, 196, 0.15) 100%);
+  border-radius: 20px;
+  border: 1.5px solid rgba(192, 59, 196, 0.4);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Contacts grid */
+.contacts-list {
+  height: fit-content;
+}
+
+.contacts-grid {
+  display: grid;
+  gap: 12px;
+  max-height: 650px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar */
+.contacts-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contacts-grid::-webkit-scrollbar-track {
+  background: rgba(197, 180, 227, 0.1);
+  border-radius: 10px;
+}
+
+.contacts-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #d59ed7 0%, #c03bc4 100%);
+  border-radius: 10px;
+}
+
+.contacts-grid::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #c03bc4 0%, #702573 100%);
+}
+
+/* Contact card */
+.contact-card {
+  border: 2px solid rgba(197, 180, 227, 0.3);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: transparent;
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover {
+  border-color: #d59ed7;
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(197, 180, 227, 0.3);
+}
+
+.contact-card:hover::before {
+  background: linear-gradient(180deg, #c03bc4 0%, #702573 100%);
+}
+
+/* Selected contact card */
+.contact-card.selected {
+  border-color: #c03bc4;
+  background: linear-gradient(135deg, rgba(197, 180, 227, 0.15) 0%, rgba(213, 158, 215, 0.15) 100%);
+  transform: translateX(4px);
+  box-shadow: 0 8px 28px rgba(192, 59, 196, 0.25);
+}
+
+.contact-card.selected::before {
+  background: linear-gradient(180deg, #c03bc4 0%, #702573 100%);
+}
+
+.contact-card.selected h3 {
+  color: #702573;
+  font-weight: 700;
+}
+
+.contact-card.selected .email {
+  color: #702573;
+  opacity: 0.8;
+}
+
+.contact-card h3 {
+  margin: 0 0 6px 0;
+  color: #702573;
+  font-size: 1.05rem;
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.contact-card p {
+  margin: 0;
+  color: #000000;
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
+}
+
+.contact-card .email {
+  color: rgba(112, 37, 115, 0.7);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Forms */
+.contact-form {
+  position: sticky;
+  top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #702573;
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: -0.1px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(197, 180, 227, 0.4);
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  background-color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #c03bc4;
+  box-shadow: 0 0 0 4px rgba(192, 59, 196, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(112, 37, 115, 0.7);
+  font-size: 0.85rem;
+  font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  letter-spacing: 0.2px;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #702573 0%, #c03bc4 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(112, 37, 115, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 24px rgba(112, 37, 115, 0.4);
+}
+
+.btn-secondary {
+  background: #f4f3f5;
+  color: #702573;
+  border: 2px solid rgba(197, 180, 227, 0.5);
+}
+
+.btn-secondary:hover {
+  background: rgba(197, 180, 227, 0.2);
+  border-color: #c03bc4;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #c03bc4 0%, #702573 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(192, 59, 196, 0.2);
+}
+
+.btn-danger:hover {
+  box-shadow: 0 6px 18px rgba(192, 59, 196, 0.3);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f3f5 100%);
+  border-radius: 16px;
+  color: #702573;
+  border: 1px solid rgba(197, 180, 227, 0.3);
+  box-shadow: 0 4px 20px rgba(112, 37, 115, 0.08);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer code {
+  background: linear-gradient(135deg, #c5b4e3 0%, #d59ed7 100%);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  color: #702573;
+  font-weight: 600;
+}
+
+/* Loading state */
+.contacts-list p {
+  text-align: center;
+  color: rgba(112, 37, 115, 0.7);
+  padding: 24px;
+  font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Lookup Information Display */
+.lookup-info {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 2px solid rgba(197, 180, 227, 0.4);
+}
+
+.lookup-info h3 {
+  margin: 0 0 16px 0;
+  color: #702573;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', 'Segoe Sans Display', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.lookup-fields {
+  display: grid;
+  gap: 10px;
+}
+
+.lookup-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(197, 180, 227, 0.08) 0%, rgba(213, 158, 215, 0.08) 100%);
+  border-radius: 10px;
+  font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
+  border: 1px solid rgba(197, 180, 227, 0.2);
+  transition: all 0.2s ease;
+}
+
+.lookup-field:hover {
+  background: linear-gradient(135deg, rgba(197, 180, 227, 0.15) 0%, rgba(213, 158, 215, 0.15) 100%);
+  border-color: rgba(197, 180, 227, 0.4);
+}
+
+.lookup-label {
+  font-weight: 600;
+  color: #702573;
+  font-size: 0.9rem;
+}
+
+.lookup-value {
+  color: #000000;
+  font-size: 0.9rem;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.4s ease-out;
+}
