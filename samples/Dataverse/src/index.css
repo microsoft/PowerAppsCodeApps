@@ -1,0 +1,52 @@
+/**
+ * Global styles - Modern theme with plan.md colors
+ */
+
+:root {
+  font-family: 'Segoe UI', 'Segoe Sans Text', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #000000;
+  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 600;
+  color: #c03bc4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #702573;
+}
+
+#root {
+  width: 100%;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(192, 59, 196, 0.3);
+  color: #702573;
+}

@@ -1,0 +1,45 @@
+{
+  "appId": "befb4f5d-8858-4e1e-ba00-8afd19197be8",
+  "appDisplayName": "Dataverse Demo App",
+  "description": null,
+  "environmentId": "5c1dc2ed-bf65-e52c-ab22-ea1fc9c10106",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:3000/",
+  "region": "prod",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "databaseDetails": null,
+      "dataSources": {
+        "contacts": {
+          "entitySetName": "contacts",
+          "logicalName": "contact",
+          "isHidden": false
+        },
+        "accounts": {
+          "entitySetName": "accounts",
+          "logicalName": "account",
+          "isHidden": false
+        },
+        "users": {
+          "entitySetName": "systemusers",
+          "logicalName": "systemuser",
+          "isHidden": false
+        },
+        "currencies": {
+          "entitySetName": "transactioncurrencies",
+          "logicalName": "transactioncurrency",
+          "isHidden": false
+        },
+        "teams": {
+          "entitySetName": "teams",
+          "logicalName": "team",
+          "isHidden": false
+        }
+      },
+      "actions": null
+    }
+  }
+}
