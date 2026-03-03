@@ -1,0 +1,51 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #646cff;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+.nav-link[data-status="active"] {
+  background-color: rgba(100, 108, 255, 0.15);
+  color: #535bf2;
+}
+
+.page {
+  padding: 1rem 0;
+}
+
+.card {
+  padding: 2em;
+}
+
+@media (prefers-color-scheme: light) {
+  .nav {
+    border-bottom-color: #ddd;
+  }
+}
