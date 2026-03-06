@@ -22,7 +22,7 @@ Open Claude Code or GitHub Copilot in any folder and run the following commands:
 
 2. Install the plugin:
    ```
-   /plugin install power-apps
+   "/plugin install power-apps@power-apps-marketplace"
    ```
 
 ## Available Commands
