@@ -17,7 +17,7 @@ Open Claude Code or GitHub Copilot in any folder and run the following commands:
 
 1. Add the marketplace:
    ```
-   /plugin marketplace add https://github.com/microsoft/PowerAppsCodeApps/plugin
+   /plugin marketplace add https://github.com/microsoft/PowerAppsCodeApps
    ```
 
 2. Install the plugin:
