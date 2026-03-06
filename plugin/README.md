@@ -13,13 +13,17 @@ Copilot plugin for building Power Apps code apps with React and Vite. Works with
 
 The plugin marketplace is hosted in the `plugin` folder of the [microsoft/PowerAppsCodeApps](https://github.com/microsoft/PowerAppsCodeApps) repository.
 
-Open Claude Code or GitHub Copilot in any folder and run:
+Open Claude Code or GitHub Copilot in any folder and run the following commands:
 
-```
-/plugin install https://github.com/microsoft/PowerAppsCodeApps/plugin
-```
+1. Add the marketplace:
+   ```
+   /plugin marketplace add https://github.com/microsoft/PowerAppsCodeApps/plugin
+   ```
 
-This installs the `power-apps` plugin using the marketplace defined in `.claude-plugin/marketplace.json`.
+2. Install the plugin:
+   ```
+   /plugin install power-apps
+   ```
 
 ## Available Commands
 
