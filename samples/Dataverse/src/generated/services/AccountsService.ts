@@ -69,4 +69,18 @@ export class AccountsService {
       },
     });
   }
+
+  public static async upload(id: string, columnName: string, file: File, fileDisplayName?: string): Promise<IOperationResult<void>> {
+    const arrayBuffer = await file.arrayBuffer();
+    const data = new Uint8Array(arrayBuffer);
+    const result = await AccountsService.client.uploadRecordAsync(
+      AccountsService.dataSourceName,
+      id.toString(),
+      columnName,
+      fileDisplayName || file.name,
+      data,
+    );
+    return result;
+  }
+
 }
