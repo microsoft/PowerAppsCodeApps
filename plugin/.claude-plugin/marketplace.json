@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "power-apps",
-      "source": ".",
+      "source": "./power-apps-plugin",
       "version": "1.0.0",
       "description": "Create and manage Power Apps code apps using React and Vite. Includes skills for scaffolding, deploying, and connecting to Power Platform services.",
       "author": {
