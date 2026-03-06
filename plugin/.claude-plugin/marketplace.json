@@ -1,0 +1,32 @@
+{
+  "name": "power-apps-marketplace",
+  "owner": {
+    "name": "Microsoft",
+    "email": "pacodeapppreview@microsoft.com"
+  },
+  "metadata": {
+    "description": "Marketplace listing for the Power Apps plugin.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "power-apps",
+      "source": ".",
+      "version": "1.0.0",
+      "description": "Create and manage Power Apps code apps using React and Vite. Includes skills for scaffolding, deploying, and connecting to Power Platform services.",
+      "author": {
+        "name": "Microsoft"
+      },
+      "homepage": "https://github.com/microsoft/powerpapps-claude-plugin/",
+      "repository": "https://github.com/microsoft/powerpapps-claude-plugin/",
+      "license": "MIT",
+      "keywords": [
+        "power-apps",
+        "canvas-apps",
+        "model-driven-apps",
+        "dataverse",
+        "pac-cli"
+      ]
+    }
+  ]
+}
