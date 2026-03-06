@@ -135,8 +135,8 @@ export function AccountForm({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     setAttachmentFile(file);
-    // Reset dependent fields when file changes
-    setColumnName('');
+    // Pre-fill column name with cr3d5_filecol; user can override if needed
+    setColumnName('cr3d5_filecol');
     setFileDisplayName('');
   };
 
@@ -290,8 +290,21 @@ export function AccountForm({
         <div className="attachment-subform">
           <h3>Attachments</h3>
 
+          {/* Current file stored in cr3d5_filecol */}
           <div className="form-group">
-            <label htmlFor="attachment-file">File</label>
+            <label>cr3d5_filecol (current value)</label>
+            {selectedAccount.cr3d5_filecol_name ? (
+              <div className="file-current">
+                <span className="file-current-icon">📄</span>
+                <span className="file-current-name">{selectedAccount.cr3d5_filecol_name}</span>
+              </div>
+            ) : (
+              <p className="file-empty">No file uploaded yet.</p>
+            )}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="attachment-file">Upload new file</label>
             <input
               type="file"
               id="attachment-file"

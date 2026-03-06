@@ -67,6 +67,8 @@ export function useAccountsCrud() {
           'createdon',
           'modifiedon',
           '_createdby_value',
+          'cr3d5_filecol',
+          'cr3d5_filecol_name',
         ],
         orderBy: [DEFAULT_SORT_ORDER],
         top: MAX_ACCOUNTS_TO_LOAD,

@@ -522,6 +522,35 @@ footer code {
   margin-top: 8px;
 }
 
+.file-current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(197, 180, 227, 0.15);
+  border: 1px solid rgba(197, 180, 227, 0.5);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.file-current-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.file-current-name {
+  color: #702573;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.file-empty {
+  margin: 0;
+  color: rgba(112, 37, 115, 0.5);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
 .required-mark {
   color: #c03bc4;
   margin-left: 2px;
