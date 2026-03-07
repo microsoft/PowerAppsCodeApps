@@ -39,14 +39,15 @@ git --version                          # Optional but recommended
 Check `pac` CLI via PowerShell — it's a Windows executable not on the bash PATH:
 
 ```bash
-pwsh -NoProfile -Command "pac"  # Used for auth, env selection, code commands
+pwsh -NoProfile -Command "pac"             # Used for auth, env selection, code commands; also check Version: line in output — must NOT be 2.3.2
 ```
 
 - **Missing Node.js**: Report "Install Node.js v22+ from https://nodejs.org/" and STOP.
 - **Node.js below v22**: Report "Node.js 22+ is required. Please upgrade or switch with `nvm use 22`." and STOP.
 - **Missing pac**: Report "Install Power Platform CLI from https://aka.ms/PowerAppsCLI" and STOP.
 - **Missing Git**: Report "Recommended but optional." Continue if approved.
-- **All present**: Report versions and proceed.
+- **pac version is 2.3.2**: This version has a known bug (`TypeError: Cannot read properties of undefined (reading 'httpClient')`) that causes `pac code push` to fail. Try upgrading: `npm install -g @microsoft/power-apps-cli`. If the upgraded version is still 2.3.2, install the known-good fallback instead: `npm install -g @microsoft/power-apps-cli@2.2.1`. Confirm user approval before any global install per shared instructions. STOP until resolved.
+- **All present and not 2.3.2**: Report versions and proceed.
 
 
 ### Step 2: Gather Requirements
