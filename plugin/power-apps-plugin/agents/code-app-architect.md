@@ -44,7 +44,7 @@ pwsh -NoProfile -Command "pac"              # Windows executable — must use pw
 - **Node.js below v22**: Report "Node.js 22+ is required. Upgrade or switch with `nvm use 22`." and STOP.
 - **Missing @microsoft/power-apps-cli**: Report "Install with `npm install -g @microsoft/power-apps-cli`." and STOP.
 - **Missing pac**: Report "Install Power Platform CLI from https://aka.ms/PowerAppsCLI." and STOP.
-- **pac version is 2.3.2**: This version has a known bug (`TypeError: Cannot read properties of undefined (reading 'httpClient')`) that causes `pac code push` to fail. Try upgrading: `npm install -g @microsoft/power-apps-cli`. If the upgraded version is still 2.3.2, install the known-good fallback instead: `npm install -g @microsoft/power-apps-cli@2.2.1`. Confirm user approval before any global install per shared instructions.
+- **pac version is 2.3.2**: This version has a known bug (`TypeError: Cannot read properties of undefined (reading 'httpClient')`) that causes `pac code push` to fail. Try upgrading: `dotnet tool update -g Microsoft.PowerApps.CLI.Tool`. If the upgraded version is still 2.3.2, downgrade by uninstalling first then installing 2.2.1: `dotnet tool uninstall -g Microsoft.PowerApps.CLI.Tool` then `dotnet tool install -g Microsoft.PowerApps.CLI.Tool --version 2.2.1`. Confirm user approval before any global install per shared instructions.
 - **All present and not 2.3.2**: Report versions and proceed.
 
 ## Key Considerations for Power Apps Code Apps

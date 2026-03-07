@@ -26,7 +26,7 @@
 | DNS/network error                   | Try different environment or contact admin.                                                                                                                                                             |
 | Auth error                          | Run `pwsh -NoProfile -Command "pac auth create"` and retry.                                                                                                                                                              |
 | Auth error on macOS (pac bug)       | `pac` has known auth bugs on Mac. Use the npx CLI instead: run `npm install -g @microsoft/power-apps-cli` (skip if already installed), then `npx power-apps push`. |
-| `TypeError: Cannot read properties of undefined (reading 'httpClient')` | Caused by pac version 2.3.2. Try upgrading: `npm install -g @microsoft/power-apps-cli`. If the version is still 2.3.2, install the known-good fallback: `npm install -g @microsoft/power-apps-cli@2.2.1`. |
+| `TypeError: Cannot read properties of undefined (reading 'httpClient')` | Caused by pac version 2.3.2. Try upgrading: `dotnet tool update -g Microsoft.PowerApps.CLI.Tool`. If the version is still 2.3.2, downgrade: `dotnet tool uninstall -g Microsoft.PowerApps.CLI.Tool` then `dotnet tool install -g Microsoft.PowerApps.CLI.Tool --version 2.2.1`. |
 
 ## Resources
 

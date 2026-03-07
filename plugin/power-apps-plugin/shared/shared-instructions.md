@@ -133,12 +133,13 @@ Look for the `Version:` line in the output (e.g., `Version: 2.3.2+...`).
 
 1. **Try upgrading first** (ask user confirmation per global install rule):
    ```bash
-   npm install -g @microsoft/power-apps-cli
+   pwsh -NoProfile -Command "dotnet tool update -g Microsoft.PowerApps.CLI.Tool"
    ```
 2. **Verify the upgrade** by re-running `pwsh -NoProfile -Command "pac"` and checking the `Version:` line.
-3. **If still on 2.3.2** (it is the latest available), install the known-good older version instead:
+3. **If still on 2.3.2** (it is the latest available), downgrade to the known-good version. `dotnet tool install` cannot downgrade — uninstall first, then install:
    ```bash
-   npm install -g @microsoft/power-apps-cli@2.2.1
+   pwsh -NoProfile -Command "dotnet tool uninstall -g Microsoft.PowerApps.CLI.Tool"
+   pwsh -NoProfile -Command "dotnet tool install -g Microsoft.PowerApps.CLI.Tool --version 2.2.1"
    ```
 
 ### If version is anything other than 2.3.2:
