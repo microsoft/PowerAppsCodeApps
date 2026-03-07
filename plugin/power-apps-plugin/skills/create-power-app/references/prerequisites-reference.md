@@ -5,7 +5,7 @@
 | Tool           | Minimum Version | Check Command                    | Install                     |
 | -------------- | --------------- | -------------------------------- | --------------------------- |
 | Node.js        | **v22+**        | `node --version`                 | https://nodejs.org/         |
-| pac CLI        | **latest**        | `pwsh -NoProfile -Command "pac"` | https://aka.ms/PowerAppsCLI |
+| pac CLI        | **latest, not 2.3.2** | `pwsh -NoProfile -Command "pac"` (check `Version:` line) | https://aka.ms/PowerAppsCLI |
 | Git (optional) | Any               | `git --version`                  | https://git-scm.com/        |
 
 ```bash

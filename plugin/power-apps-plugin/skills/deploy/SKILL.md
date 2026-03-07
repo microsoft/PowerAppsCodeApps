@@ -43,10 +43,22 @@ pac code push
 
 Capture the app URL from the output if present.
 
-If deploy fails, report the error and stop — do not retry silently. Common fixes are in the troubleshooting guide:
+If deploy fails, report the error and follow this diagnostic sequence — do not retry silently:
 
-- Auth error → `pwsh -NoProfile -Command "pac auth create"`
-- Environment mismatch → `pwsh -NoProfile -Command "pac env select --environment <id>"`
+1. **Always run `pac auth list` first** to check authentication state and which environment is active:
+   ```bash
+   pwsh -NoProfile -Command "pac auth list"
+   ```
+2. **If authenticated but targeting the wrong environment**: switch environment and retry:
+   ```bash
+   pwsh -NoProfile -Command "pac env select --environment <correct-environment-id>"
+   pwsh -NoProfile -Command "pac code push"
+   ```
+3. **If `pac env select` fails, or pac is not authenticated at all**: then run:
+   ```bash
+   pwsh -NoProfile -Command "pac auth create"
+   pwsh -NoProfile -Command "pac code push"
+   ```
 
 **Mac fallback — if `pac code push` fails with an auth error on macOS:**
 `pac` has known authentication bugs on Mac that can block the push. Use the npx CLI instead:

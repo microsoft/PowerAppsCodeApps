@@ -117,6 +117,36 @@ When selecting an environment, use this priority order: `power.config.json` → 
 
 ---
 
+## pac Version Check
+
+**pac version 2.3.2 has a known bug where `pac code push` fails with `TypeError: Cannot read properties of undefined (reading 'httpClient')`. Never use this version.**
+
+After confirming `pac` is installed, always check its version. `pac --version` is not a valid flag, but running `pac` with no arguments prints the version in the output header:
+
+```bash
+pwsh -NoProfile -Command "pac"
+```
+
+Look for the `Version:` line in the output (e.g., `Version: 2.3.2+...`).
+
+### If version is 2.3.2:
+
+1. **Try upgrading first** (ask user confirmation per global install rule):
+   ```bash
+   npm install -g @microsoft/power-apps-cli
+   ```
+2. **Verify the upgrade** by re-running `pwsh -NoProfile -Command "pac"` and checking the `Version:` line.
+3. **If still on 2.3.2** (it is the latest available), install the known-good older version instead:
+   ```bash
+   npm install -g @microsoft/power-apps-cli@2.2.1
+   ```
+
+### If version is anything other than 2.3.2:
+
+Proceed normally — no action needed.
+
+---
+
 ## Windows CLI Compatibility
 
 The shell running Bash tool commands is bash on Windows. The `pac` CLI is a Windows executable and is **not** on the bash PATH.

@@ -14,7 +14,7 @@
 | ----------------------- | ------------------------------------------------------------------ |
 | Build fails             | Check Node.js LTS version, run `npm install`                       |
 | Build fails with TS6133 | Unused imports cause errors in strict mode. Remove unused imports. |
-| Auth error              | Run `pwsh -NoProfile -Command "pac auth clear" && pwsh -NoProfile -Command "pac auth create"`        |
+| Auth error              | Run `pwsh -NoProfile -Command "pac auth list"` to check auth state. If authenticated but wrong environment, run `pwsh -NoProfile -Command "pac env select --environment <id>"`. Only if that fails, run `pwsh -NoProfile -Command "pac auth create"`. |
 | No data                 | Verify user has read access to table, check browser console        |
 | Local testing           | Use same browser profile as Power Platform auth                    |
 
@@ -22,10 +22,11 @@
 
 | Error                               | Fix                                                                                                                                                                                                     |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| "environment config does not match" | Ask the user: **retarget the app** (update `environmentId` in `power.config.json` to match active env) or **switch auth** (run `pwsh -NoProfile -Command "pac auth create"` to match the app's environment). Then retry. |
+| "environment config does not match" | Run `pwsh -NoProfile -Command "pac auth list"` to check active environment. Then either: **re-target the app** (update `environmentId` in `power.config.json` to match active env), or **switch environment** (`pwsh -NoProfile -Command "pac env select --environment <id>"`). Only if switching environment fails, run `pwsh -NoProfile -Command "pac auth create"`. |
 | DNS/network error                   | Try different environment or contact admin.                                                                                                                                                             |
 | Auth error                          | Run `pwsh -NoProfile -Command "pac auth create"` and retry.                                                                                                                                                              |
 | Auth error on macOS (pac bug)       | `pac` has known auth bugs on Mac. Use the npx CLI instead: run `npm install -g @microsoft/power-apps-cli` (skip if already installed), then `npx power-apps push`. |
+| `TypeError: Cannot read properties of undefined (reading 'httpClient')` | Caused by pac version 2.3.2. Try upgrading: `npm install -g @microsoft/power-apps-cli`. If the version is still 2.3.2, install the known-good fallback: `npm install -g @microsoft/power-apps-cli@2.2.1`. |
 
 ## Resources
 
