@@ -19,7 +19,7 @@
  * populate lookup dropdowns (e.g. the Managing Partner field on contacts).
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AccountsService } from '../generated/services/AccountsService';
 import type { Accounts } from '../generated/models/AccountsModel';
 import type { AccountFormData } from '../components/AccountForm';
@@ -33,7 +33,13 @@ export function useAccountsCrud() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedAccount, setSelectedAccount] = useState<Accounts | null>(null);
+  const selectedAccountRef = useRef<Accounts | null>(null);
   const [isCreating, setIsCreating] = useState(false);
+
+  // Keep ref in sync so loadAccounts always reads the current selectedAccount
+  useEffect(() => {
+    selectedAccountRef.current = selectedAccount;
+  }, [selectedAccount]);
 
   /**
    * Load all accounts from Dataverse on mount
@@ -76,7 +82,12 @@ export function useAccountsCrud() {
 
       if (result.data) {
         setAccounts(result.data);
-        if (result.data.length > 0 && !selectedAccount) {
+        const currentId = selectedAccountRef.current?.accountid;
+        if (currentId) {
+          // Refresh the selected account so fields like cr3d5_filecol_name are up to date
+          const refreshed = result.data.find(a => a.accountid === currentId);
+          if (refreshed) setSelectedAccount(refreshed);
+        } else if (result.data.length > 0) {
           setSelectedAccount(result.data[0]);
         }
       } else {

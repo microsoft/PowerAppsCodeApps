@@ -15,7 +15,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
-import type { Accounts } from '../generated/models/AccountsModel';
+import type { Accounts, AccountsUploadColumnName } from '../generated/models/AccountsModel';
 import { AccountsService } from '../generated/services/AccountsService';
 
 export interface AccountFormData {
@@ -34,6 +34,7 @@ interface AccountFormProps {
   onSubmit: (formData: AccountFormData) => Promise<boolean>;
   onCancel: () => void;
   onDelete: (accountId: string) => void;
+  onUploadSuccess?: () => void;
 }
 
 interface Toast {
@@ -47,6 +48,7 @@ export function AccountForm({
   onSubmit,
   onCancel,
   onDelete,
+  onUploadSuccess,
 }: AccountFormProps) {
   // --- Main form state ---
   const [formData, setFormData] = useState<AccountFormData>({
@@ -62,7 +64,7 @@ export function AccountForm({
 
   // --- Attachment sub-form state ---
   const [attachmentFile, setAttachmentFile] = useState<File | null>(null);
-  const [columnName, setColumnName] = useState('');
+  const [columnName, setColumnName] = useState<AccountsUploadColumnName>('cr3d5_filecol');
   const [fileDisplayName, setFileDisplayName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
 
@@ -97,7 +99,7 @@ export function AccountForm({
     }
     // Reset attachment state when account changes
     setAttachmentFile(null);
-    setColumnName('');
+    setColumnName('cr3d5_filecol');
     setFileDisplayName('');
   }, [selectedAccount, isCreating]);
 
@@ -147,16 +149,17 @@ export function AccountForm({
     try {
       const result = await AccountsService.upload(
         selectedAccount.accountid,
-        columnName.trim(),
+        columnName,
         attachmentFile,
         fileDisplayName.trim() || attachmentFile.name,
       );
 
       if (result.success) {
         showToast(`File "${attachmentFile.name}" uploaded successfully.`, 'success');
+        onUploadSuccess?.();
         // Reset attachment fields on success
         setAttachmentFile(null);
-        setColumnName('');
+        setColumnName('cr3d5_filecol');
         setFileDisplayName('');
         // Reset the file input element
         const fileInput = document.getElementById('attachment-file') as HTMLInputElement;
@@ -318,14 +321,16 @@ export function AccountForm({
                 <label htmlFor="attachment-column">
                   Column Name <span className="required-mark">*</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   id="attachment-column"
                   value={columnName}
-                  onChange={(e) => setColumnName(e.target.value)}
-                  placeholder="e.g. cr3d5_filecol"
-                  required
-                />
+                  onChange={(e) => setColumnName(e.target.value as AccountsUploadColumnName)}
+                >
+                  <option value="cr3d5_filecol">cr3d5_filecol</option>
+                  <option value="cr3d5_filecol2">cr3d5_filecol2</option>
+                  <option value="cr3d5_imagecol">cr3d5_imagecol</option>
+                  <option value="entityimage">entityimage</option>
+                </select>
                 <small>The schema name of the file/image column to upload to</small>
               </div>
 

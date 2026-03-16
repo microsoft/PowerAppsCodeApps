@@ -4,6 +4,7 @@
  */
 
 import type { AccountsBase, Accounts } from '../models/AccountsModel';
+import type { AccountsUploadColumnName } from '../models/AccountsModel';
 import type { GetEntityMetadataOptions, EntityMetadata } from '@microsoft/power-apps/data/metadata/dataverse';
 import type { IGetOptions, IGetAllOptions } from '../models/CommonModels';
 import type { IOperationResult } from '@microsoft/power-apps/data';
@@ -70,10 +71,10 @@ export class AccountsService {
     });
   }
 
-  public static async upload(id: string, columnName: string, file: File, fileDisplayName?: string): Promise<IOperationResult<void>> {
+  public static async upload(id: string, columnName: AccountsUploadColumnName, file: File, fileDisplayName?: string): Promise<IOperationResult<void>> {
     const arrayBuffer = await file.arrayBuffer();
     const data = new Uint8Array(arrayBuffer);
-    const result = await AccountsService.client.uploadRecordAsync(
+    const result = await AccountsService.client.uploadFileToRecord(
       AccountsService.dataSourceName,
       id.toString(),
       columnName,
@@ -82,5 +83,4 @@ export class AccountsService {
     );
     return result;
   }
-
 }

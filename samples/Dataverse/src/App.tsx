@@ -88,6 +88,7 @@ function App() {
     cancelForm: cancelAccountForm,
     handleFormSubmit: handleAccountFormSubmit,
     deleteAccount,
+    loadAccounts,
   } = useAccountsCrud();
 
   return (
@@ -159,6 +160,7 @@ function App() {
                 onSubmit={handleAccountFormSubmit}
                 onCancel={cancelAccountForm}
                 onDelete={deleteAccount}
+                onUploadSuccess={loadAccounts}
               />
             )}
           </div>
