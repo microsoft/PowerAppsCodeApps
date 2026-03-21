@@ -8,6 +8,8 @@
  * - Educates developers about the service layer pattern
  */
 
+declare const __APP_VERSION__: string;
+
 export function Footer() {
   return (
     <footer>
@@ -16,6 +18,7 @@ export function Footer() {
         All operations use the <code>ContactsService</code> and <code>AccountsService</code> generated files.
         Services handle all Dataverse communication, keeping components pure and testable.
       </p>
+      <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>v{__APP_VERSION__}</p>
     </footer>
   );
 }
