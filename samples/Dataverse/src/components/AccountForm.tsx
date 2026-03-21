@@ -67,6 +67,9 @@ export function AccountForm({
   const [columnName, setColumnName] = useState<AccountsUploadColumnName>('cr3d5_filecol');
   const [fileDisplayName, setFileDisplayName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  const [isClearingFile, setIsClearingFile] = useState(false);
+  const [downloadingCol, setDownloadingCol] = useState<AccountsUploadColumnName | null>(null);
+  const [imageFullSize, setImageFullSize] = useState(false);
 
   // --- Toast state ---
   const [toast, setToast] = useState<Toast | null>(null);
@@ -140,6 +143,70 @@ export function AccountForm({
     // Pre-fill column name with cr3d5_filecol; user can override if needed
     setColumnName('cr3d5_filecol');
     setFileDisplayName('');
+  };
+
+  const triggerBlobDownload = (data: Uint8Array, fileName: string) => {
+    const blob = new Blob([data as BlobPart], { type: 'application/octet-stream' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  const handleDownload = async (col: AccountsUploadColumnName, fallbackFileName: string) => {
+    if (!selectedAccount?.accountid) return;
+    setDownloadingCol(col);
+    try {
+      const result = await AccountsService.downloadFile(selectedAccount.accountid, col);
+      if (result.success && result.data) {
+        triggerBlobDownload(result.data, result.fileName ?? fallbackFileName);
+      } else {
+        showToast('Download failed.', 'error');
+      }
+    } catch (err) {
+      showToast(`Download error: ${(err as Error).message}`, 'error');
+    } finally {
+      setDownloadingCol(null);
+    }
+  };
+
+  const handleDownloadImage = async (fallbackFileName: string) => {
+    if (!selectedAccount?.accountid) return;
+    setDownloadingCol('cr3d5_imagecol');
+    try {
+      const result = await AccountsService.downloadImage(selectedAccount.accountid, 'cr3d5_imagecol', imageFullSize);
+      if (result.success && result.data) {
+        triggerBlobDownload(result.data, result.fileName ?? fallbackFileName);
+      } else {
+        showToast(`Image download failed: ${result.error?.message ?? 'unknown error'}`, 'error');
+      }
+    } catch (err) {
+      showToast(`Image download error: ${(err as Error).message}`, 'error');
+    } finally {
+      setDownloadingCol(null);
+    }
+  };
+
+  const handleClearFile = async (col: AccountsUploadColumnName) => {
+    if (!selectedAccount?.accountid) return;
+    setIsClearingFile(true);
+    try {
+      const result = await AccountsService.deleteFileOrImage(selectedAccount.accountid, col);
+      if (result.success) {
+        showToast('File removed successfully.', 'success');
+        onUploadSuccess?.();
+      } else {
+        showToast(`Failed to clear file: ${result.error?.message ?? 'unknown error'}`, 'error');
+      }
+    } catch (err) {
+      showToast(`Error clearing file: ${(err as Error).message}`, 'error');
+    } finally {
+      setIsClearingFile(false);
+    }
   };
 
   const handleUpload = async () => {
@@ -300,9 +367,66 @@ export function AccountForm({
               <div className="file-current">
                 <span className="file-current-icon">📄</span>
                 <span className="file-current-name">{selectedAccount.cr3d5_filecol_name}</span>
+                <button
+                  type="button"
+                  className="file-action-btn"
+                  onClick={() => handleDownload('cr3d5_filecol', selectedAccount.cr3d5_filecol_name!)}
+                  disabled={downloadingCol === 'cr3d5_filecol'}
+                  title="Download file"
+                >
+                  {downloadingCol === 'cr3d5_filecol' ? '…' : '⬇'}
+                </button>
+                <button
+                  type="button"
+                  className="file-clear-btn"
+                  onClick={() => handleClearFile('cr3d5_filecol')}
+                  disabled={isClearingFile}
+                  title="Remove file"
+                >
+                  {isClearingFile ? '…' : '×'}
+                </button>
               </div>
             ) : (
               <p className="file-empty">No file uploaded yet.</p>
+            )}
+          </div>
+
+          {/* Current image stored in cr3d5_imagecol */}
+          <div className="form-group">
+            <label>cr3d5_imagecol (current value)</label>
+            {selectedAccount.cr3d5_imagecol_url ? (
+              <div className="file-current">
+                <span className="file-current-name">Stored image</span>
+                <button
+                  type="button"
+                  className="file-action-btn"
+                  onClick={() => setImageFullSize(f => !f)}
+                  title={imageFullSize ? 'Switch to thumbnail' : 'Switch to full size'}
+                  style={{ fontSize: '0.7rem', padding: '2px 6px' }}
+                >
+                  {imageFullSize ? 'Full' : 'Thumb'}
+                </button>
+                <button
+                  type="button"
+                  className="file-action-btn"
+                  onClick={() => handleDownloadImage(selectedAccount.name || 'image')}
+                  disabled={downloadingCol === 'cr3d5_imagecol'}
+                  title="Download image"
+                >
+                  {downloadingCol === 'cr3d5_imagecol' ? '…' : '⬇'}
+                </button>
+                <button
+                  type="button"
+                  className="file-clear-btn"
+                  onClick={() => handleClearFile('cr3d5_imagecol')}
+                  disabled={isClearingFile}
+                  title="Remove image"
+                >
+                  {isClearingFile ? '…' : '×'}
+                </button>
+              </div>
+            ) : (
+              <p className="file-empty">No image uploaded yet.</p>
             )}
           </div>
 

@@ -542,6 +542,48 @@ footer code {
   color: #702573;
   font-weight: 500;
   word-break: break-all;
+  flex: 1;
+}
+
+.file-action-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(112, 37, 115, 0.6);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.file-action-btn:hover:not(:disabled) {
+  color: #702573;
+}
+
+.file-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.file-clear-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(112, 37, 115, 0.6);
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.file-clear-btn:hover:not(:disabled) {
+  color: #c0392b;
+}
+
+.file-clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .file-empty {
