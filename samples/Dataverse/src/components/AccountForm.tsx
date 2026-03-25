@@ -15,7 +15,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
-import type { Accounts, AccountsUploadColumnName } from '../generated/models/AccountsModel';
+import type { Accounts, AccountsUploadColumnName, AccountsFileColumnName, AccountsImageColumnName } from '../generated/models/AccountsModel';
 import { AccountsService } from '../generated/services/AccountsService';
 
 export interface AccountFormData {
@@ -157,7 +157,7 @@ export function AccountForm({
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  const handleDownload = async (col: AccountsUploadColumnName, fallbackFileName: string) => {
+  const handleDownload = async (col: AccountsFileColumnName, fallbackFileName: string) => {
     if (!selectedAccount?.accountid) return;
     setDownloadingCol(col);
     try {
@@ -176,9 +176,10 @@ export function AccountForm({
 
   const handleDownloadImage = async (fallbackFileName: string) => {
     if (!selectedAccount?.accountid) return;
-    setDownloadingCol('cr3d5_imagecol');
+    const imageCol: AccountsImageColumnName = 'cr3d5_imagecol';
+    setDownloadingCol(imageCol);
     try {
-      const result = await AccountsService.downloadImage(selectedAccount.accountid, 'cr3d5_imagecol', imageFullSize);
+      const result = await AccountsService.downloadImage(selectedAccount.accountid, imageCol, imageFullSize);
       if (result.success && result.data) {
         triggerBlobDownload(result.data, result.fileName ?? fallbackFileName);
       } else {
