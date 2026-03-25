@@ -53,11 +53,6 @@ export const Accountsbusinesstypecode = {
   1: 'DefaultValue'
 } as const;
 export type Accountsbusinesstypecode = keyof typeof Accountsbusinesstypecode;
-export const Accountscreditonhold = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountscreditonhold = keyof typeof Accountscreditonhold;
 export const Accountscustomersizecode = {
   1: 'DefaultValue'
 } as const;
@@ -77,46 +72,6 @@ export const Accountscustomertypecode = {
   12: 'Other'
 } as const;
 export type Accountscustomertypecode = keyof typeof Accountscustomertypecode;
-export const Accountsdonotbulkemail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Accountsdonotbulkemail = keyof typeof Accountsdonotbulkemail;
-export const Accountsdonotbulkpostalmail = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountsdonotbulkpostalmail = keyof typeof Accountsdonotbulkpostalmail;
-export const Accountsdonotemail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Accountsdonotemail = keyof typeof Accountsdonotemail;
-export const Accountsdonotfax = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Accountsdonotfax = keyof typeof Accountsdonotfax;
-export const Accountsdonotphone = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Accountsdonotphone = keyof typeof Accountsdonotphone;
-export const Accountsdonotpostalmail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Accountsdonotpostalmail = keyof typeof Accountsdonotpostalmail;
-export const Accountsdonotsendmm = {
-  0: 'Send',
-  1: 'DoNotSend'
-} as const;
-export type Accountsdonotsendmm = keyof typeof Accountsdonotsendmm;
-export const Accountsfollowemail = {
-  0: 'DoNotAllow',
-  1: 'Allow'
-} as const;
-export type Accountsfollowemail = keyof typeof Accountsfollowemail;
 export const Accountsindustrycode = {
   1: 'Accounting',
   2: 'AgricultureandNon_petrolNaturalResourceExtraction',
@@ -153,21 +108,6 @@ export const Accountsindustrycode = {
   33: 'Wholesale'
 } as const;
 export type Accountsindustrycode = keyof typeof Accountsindustrycode;
-export const Accountsisprivate = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountsisprivate = keyof typeof Accountsisprivate;
-export const Accountsmarketingonly = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountsmarketingonly = keyof typeof Accountsmarketingonly;
-export const Accountsmerged = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountsmerged = keyof typeof Accountsmerged;
 export const Accountsownershipcode = {
   1: 'Public',
   2: 'Private',
@@ -175,11 +115,6 @@ export const Accountsownershipcode = {
   4: 'Other'
 } as const;
 export type Accountsownershipcode = keyof typeof Accountsownershipcode;
-export const Accountsparticipatesinworkflow = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Accountsparticipatesinworkflow = keyof typeof Accountsparticipatesinworkflow;
 export const Accountspaymenttermscode = {
   1: 'Net30',
   2: '_2_10_Net30',
@@ -243,11 +178,11 @@ export interface AccountsBase {
   address1_county?: string;
   address1_fax?: string;
   address1_freighttermscode?: Accountsaddress1_freighttermscode;
-  address1_latitude?: string;
+  address1_latitude?: number;
   address1_line1?: string;
   address1_line2?: string;
   address1_line3?: string;
-  address1_longitude?: string;
+  address1_longitude?: number;
   address1_name?: string;
   address1_postalcode?: string;
   address1_postofficebox?: string;
@@ -258,7 +193,7 @@ export interface AccountsBase {
   address1_telephone2?: string;
   address1_telephone3?: string;
   address1_upszone?: string;
-  address1_utcoffset?: string;
+  address1_utcoffset?: number;
   address2_addressid?: string;
   address2_addresstypecode?: Accountsaddress2_addresstypecode;
   address2_city?: string;
@@ -266,11 +201,11 @@ export interface AccountsBase {
   address2_county?: string;
   address2_fax?: string;
   address2_freighttermscode?: Accountsaddress2_freighttermscode;
-  address2_latitude?: string;
+  address2_latitude?: number;
   address2_line1?: string;
   address2_line2?: string;
   address2_line3?: string;
-  address2_longitude?: string;
+  address2_longitude?: number;
   address2_name?: string;
   address2_postalcode?: string;
   address2_postofficebox?: string;
@@ -281,48 +216,47 @@ export interface AccountsBase {
   address2_telephone2?: string;
   address2_telephone3?: string;
   address2_upszone?: string;
-  address2_utcoffset?: string;
+  address2_utcoffset?: number;
   adx_createdbyipaddress?: string;
   adx_createdbyusername?: string;
   adx_modifiedbyipaddress?: string;
   adx_modifiedbyusername?: string;
   businesstypecode?: Accountsbusinesstypecode;
-  "crd1b_aimodel@odata.bind"?: string;
-  "crd1b_ContactPerson@odata.bind"?: string;
-  creditlimit?: string;
-  creditonhold?: Accountscreditonhold;
+  cr3d5_imagecol?: string;
+  creditlimit?: number;
+  creditonhold?: boolean;
   customersizecode?: Accountscustomersizecode;
   customertypecode?: Accountscustomertypecode;
   description?: string;
-  donotbulkemail?: Accountsdonotbulkemail;
-  donotbulkpostalmail?: Accountsdonotbulkpostalmail;
-  donotemail?: Accountsdonotemail;
-  donotfax?: Accountsdonotfax;
-  donotphone?: Accountsdonotphone;
-  donotpostalmail?: Accountsdonotpostalmail;
-  donotsendmm?: Accountsdonotsendmm;
+  donotbulkemail?: boolean;
+  donotbulkpostalmail?: boolean;
+  donotemail?: boolean;
+  donotfax?: boolean;
+  donotphone?: boolean;
+  donotpostalmail?: boolean;
+  donotsendmm?: boolean;
   emailaddress1?: string;
   emailaddress2?: string;
   emailaddress3?: string;
   entityimage?: string;
   fax?: string;
-  followemail?: Accountsfollowemail;
+  followemail?: boolean;
   ftpsiteurl?: string;
-  importsequencenumber?: string;
+  importsequencenumber?: number;
   industrycode?: Accountsindustrycode;
   lastonholdtime?: string;
   lastusedincampaign?: string;
-  marketcap?: string;
-  marketingonly?: Accountsmarketingonly;
+  marketcap?: number;
+  marketingonly?: boolean;
   "msa_managingpartnerid@odata.bind"?: string;
   name: string;
-  numberofemployees?: string;
+  numberofemployees?: number;
   overriddencreatedon?: string;
   ownerid: string;
   owneridtype: string;
   ownershipcode?: Accountsownershipcode;
   "ParentAccountId@odata.bind"?: string;
-  participatesinworkflow?: Accountsparticipatesinworkflow;
+  participatesinworkflow?: boolean;
   paymenttermscode?: Accountspaymenttermscode;
   preferredappointmentdaycode?: Accountspreferredappointmentdaycode;
   preferredappointmenttimecode?: Accountspreferredappointmenttimecode;
@@ -332,8 +266,8 @@ export interface AccountsBase {
   primarysatoriid?: string;
   primarytwitterid?: string;
   processid?: string;
-  revenue?: string;
-  sharesoutstanding?: string;
+  revenue?: number;
+  sharesoutstanding?: number;
   shippingmethodcode?: Accountsshippingmethodcode;
   sic?: string;
   "SLAId@odata.bind"?: string;
@@ -346,10 +280,10 @@ export interface AccountsBase {
   telephone3?: string;
   territorycode?: Accountsterritorycode;
   tickersymbol?: string;
-  timezoneruleversionnumber?: string;
+  timezoneruleversionnumber?: number;
   "TransactionCurrencyId@odata.bind"?: string;
   traversedpath?: string;
-  utcconversiontimezonecode?: string;
+  utcconversiontimezonecode?: number;
   websiteurl?: string;
   yominame?: string;
 }
@@ -366,18 +300,20 @@ export interface Accounts extends AccountsBase {
   address2_composite?: string;
   address2_freighttermscodename?: string;
   address2_shippingmethodcodename?: string;
-  aging30?: string;
-  aging30_base?: string;
-  aging60?: string;
-  aging60_base?: string;
-  aging90?: string;
-  aging90_base?: string;
+  aging30?: number;
+  aging30_base?: number;
+  aging60?: number;
+  aging60_base?: number;
+  aging90?: number;
+  aging90_base?: number;
   businesstypecodename?: string;
-  crd1b_accountfileattachment?: string;
-  crd1b_accountfileattachment_name?: string;
-  crd1b_aimodelname?: string;
-  crd1b_contactpersonname?: string;
-  crd1b_contactpersonyominame?: string;
+  cr3d5_filecol?: string;
+  cr3d5_filecol_name?: string;
+  cr3d5_filecol2?: string;
+  cr3d5_filecol2_name?: string;
+  cr3d5_imagecol_timestamp?: number;
+  cr3d5_imagecol_url?: string;
+  cr3d5_imagecolid?: string;
   createdbyexternalpartyname?: string;
   createdbyexternalpartyyominame?: string;
   createdbyname?: string;
@@ -385,7 +321,7 @@ export interface Accounts extends AccountsBase {
   createdon?: string;
   createdonbehalfbyname?: string;
   createdonbehalfbyyominame?: string;
-  creditlimit_base?: string;
+  creditlimit_base?: number;
   creditonholdname?: string;
   customersizecodename?: string;
   customertypecodename?: string;
@@ -396,19 +332,19 @@ export interface Accounts extends AccountsBase {
   donotphonename?: string;
   donotpostalmailname?: string;
   donotsendmarketingmaterialname?: string;
-  entityimage_timestamp?: string;
+  entityimage_timestamp?: number;
   entityimage_url?: string;
   entityimageid?: string;
-  exchangerate?: string;
+  exchangerate?: number;
   followemailname?: string;
   industrycodename?: string;
-  isprivate?: Accountsisprivate;
+  isprivate?: boolean;
   isprivatename?: string;
-  marketcap_base?: string;
+  marketcap_base?: number;
   marketingonlyname?: string;
   masteraccountidname?: string;
   masteraccountidyominame?: string;
-  merged?: Accountsmerged;
+  merged?: boolean;
   mergedname?: string;
   modifiedbyexternalpartyname?: string;
   modifiedbyexternalpartyyominame?: string;
@@ -419,7 +355,7 @@ export interface Accounts extends AccountsBase {
   modifiedonbehalfbyyominame?: string;
   msa_managingpartneridname?: string;
   msa_managingpartneridyominame?: string;
-  onholdtime?: string;
+  onholdtime?: number;
   owneridname: string;
   owneridyominame: string;
   ownershipcodename?: string;
@@ -435,7 +371,7 @@ export interface Accounts extends AccountsBase {
   preferredsystemuseridyominame?: string;
   primarycontactidname?: string;
   primarycontactidyominame?: string;
-  revenue_base?: string;
+  revenue_base?: number;
   shippingmethodcodename?: string;
   slainvokedidname?: string;
   slaname?: string;
@@ -444,11 +380,7 @@ export interface Accounts extends AccountsBase {
   territorycodename?: string;
   timespentbymeonemailandmeetings?: string;
   transactioncurrencyidname?: string;
-  versionnumber?: string;
-  crd1b_aimodel?: object;
-  _crd1b_aimodel_value?: string;
-  crd1b_contactperson?: object;
-  _crd1b_contactperson_value?: string;
+  versionnumber?: number;
   createdby?: object;
   _createdby_value?: string;
   createdbyexternalparty?: object;
@@ -484,3 +416,4 @@ export interface Accounts extends AccountsBase {
   transactioncurrencyid?: object;
   _transactioncurrencyid_value?: string;
 }
+export type AccountsUploadColumnName = 'cr3d5_filecol' | 'cr3d5_filecol2' | 'cr3d5_imagecol' | 'entityimage';
