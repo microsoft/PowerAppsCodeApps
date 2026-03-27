@@ -271,7 +271,7 @@ src/
 
 # 📚 Learning Resources
 
-- [Power Apps Code Apps Docs](https://docs.microsoft.com/power-apps/code-apps)
+- [Power Apps Code Apps Docs](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview)
 - [Fluent UI React v9](https://react.fluentui.dev/)
 - [Office 365 Connectors](https://docs.microsoft.com/connectors/office365/)
 - [SQL Server Connector](https://docs.microsoft.com/connectors/sql/)
