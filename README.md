@@ -7,6 +7,16 @@ connectors and data sources.
 > Code apps are generally available. See the full code apps documentation at
 > [aka.ms/pacodeapps](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/).
 
+## AI Assistant Plugin
+
+The plugin for AI coding assistants (Claude and GitHub Copilot) has moved to a new home:
+
+**[microsoft/power-platform-skills](https://github.com/microsoft/power-platform-skills)**
+
+Visit that repository to install and use the plugin with your AI assistant.
+
+---
+
 ## 🛠 Quick Start
 
 The fastest way to start a new code app is with the `starter` template:
