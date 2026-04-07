@@ -416,4 +416,8 @@ export interface Accounts extends AccountsBase {
   transactioncurrencyid?: object;
   _transactioncurrencyid_value?: string;
 }
-export type AccountsUploadColumnName = 'cr3d5_filecol' | 'cr3d5_filecol2' | 'cr3d5_imagecol' | 'entityimage';
+export type AccountsFileColumnName = 'cr3d5_filecol' | 'cr3d5_filecol2';
+
+export type AccountsImageColumnName = 'cr3d5_imagecol' | 'entityimage';
+
+export type AccountsUploadColumnName = AccountsFileColumnName | AccountsImageColumnName;
