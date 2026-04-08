@@ -27,7 +27,7 @@ export class TeamsService {
   public static async update(id: string, changedFields: Partial<Omit<TeamsBase, 'teamid'>>): Promise<IOperationResult<Teams>> {
     const result = await TeamsService.client.updateRecordAsync<Partial<Omit<TeamsBase, 'teamid'>>, Teams>(
       TeamsService.dataSourceName,
-      id.toString(),
+      id,
       changedFields
     );
     return result;
@@ -36,13 +36,13 @@ export class TeamsService {
   public static async delete(id: string): Promise<void> {
     await TeamsService.client.deleteRecordAsync(
       TeamsService.dataSourceName,
-      id.toString());
+      id);
   }
 
   public static async get(id: string, options?: IGetOptions): Promise<IOperationResult<Teams>> {
     const result = await TeamsService.client.retrieveRecordAsync<Teams>(
       TeamsService.dataSourceName,
-      id.toString(),
+      id,
       options
     );
     return result;

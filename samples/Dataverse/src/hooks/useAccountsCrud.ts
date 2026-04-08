@@ -73,10 +73,9 @@ export function useAccountsCrud() {
           'createdon',
           'modifiedon',
           '_createdby_value',
-          'cr3d5_filecol',
-          'cr3d5_filecol_name',
-          'cr3d5_imagecol',
-          'cr3d5_imagecol_url',
+          'crd1b_accountfileattachment',
+          'crd1b_accountfileattachment_name',
+          'entityimage',
         ],
         orderBy: [DEFAULT_SORT_ORDER],
         top: MAX_ACCOUNTS_TO_LOAD,
@@ -86,7 +85,7 @@ export function useAccountsCrud() {
         setAccounts(result.data);
         const currentId = selectedAccountRef.current?.accountid;
         if (currentId) {
-          // Refresh the selected account so fields like cr3d5_filecol_name are up to date
+          // Refresh the selected account so fields like crd1b_accountfileattachment_name are up to date
           const refreshed = result.data.find(a => a.accountid === currentId);
           if (refreshed) setSelectedAccount(refreshed);
         } else if (result.data.length > 0) {

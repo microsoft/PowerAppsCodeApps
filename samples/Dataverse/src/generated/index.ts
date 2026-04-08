@@ -14,6 +14,9 @@ export * as TransactioncurrenciesModel from './models/TransactioncurrenciesModel
 // Services
 export * from './services/AccountsService';
 export * from './services/ContactsService';
+export * from './services/ConvertOwnerTeamToAccessTeamService';
+export * from './services/SetAutoNumberSeedService';
 export * from './services/SystemusersService';
 export * from './services/TeamsService';
 export * from './services/TransactioncurrenciesService';
+export * from './services/WhoAmIService';

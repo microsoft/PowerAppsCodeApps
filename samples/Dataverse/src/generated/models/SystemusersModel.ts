@@ -49,21 +49,11 @@ export const Systemuserscaltype = {
   12: 'ProjectService'
 } as const;
 export type Systemuserscaltype = keyof typeof Systemuserscaltype;
-export const Systemusersdefaultfilterspopulated = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersdefaultfilterspopulated = keyof typeof Systemusersdefaultfilterspopulated;
 export const Systemusersdeletedstate = {
   0: 'Notdeleted',
   1: 'Softdeleted'
 } as const;
 export type Systemusersdeletedstate = keyof typeof Systemusersdeletedstate;
-export const Systemusersdisplayinserviceviews = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersdisplayinserviceviews = keyof typeof Systemusersdisplayinserviceviews;
 export const Systemusersemailrouteraccessapproval = {
   0: 'Empty',
   1: 'Approved',
@@ -88,41 +78,6 @@ export const Systemusersinvitestatuscode = {
   6: 'InvitationRevoked'
 } as const;
 export type Systemusersinvitestatuscode = keyof typeof Systemusersinvitestatuscode;
-export const Systemusersisactivedirectoryuser = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersisactivedirectoryuser = keyof typeof Systemusersisactivedirectoryuser;
-export const Systemusersisallowedbyipfirewall = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersisallowedbyipfirewall = keyof typeof Systemusersisallowedbyipfirewall;
-export const Systemusersisdisabled = {
-  0: 'Enabled',
-  1: 'Disabled'
-} as const;
-export type Systemusersisdisabled = keyof typeof Systemusersisdisabled;
-export const Systemusersisemailaddressapprovedbyo365admin = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersisemailaddressapprovedbyo365admin = keyof typeof Systemusersisemailaddressapprovedbyo365admin;
-export const Systemusersisintegrationuser = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersisintegrationuser = keyof typeof Systemusersisintegrationuser;
-export const Systemusersislicensed = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersislicensed = keyof typeof Systemusersislicensed;
-export const Systemusersissyncwithdirectory = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemusersissyncwithdirectory = keyof typeof Systemusersissyncwithdirectory;
 export const Systemusersoutgoingemaildeliverymethod = {
   0: 'None',
   1: 'MicrosoftDynamics365forOutlook',
@@ -145,11 +100,6 @@ export const Systemuserspreferredphonecode = {
   4: 'MobilePhone'
 } as const;
 export type Systemuserspreferredphonecode = keyof typeof Systemuserspreferredphonecode;
-export const Systemuserssetupuser = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Systemuserssetupuser = keyof typeof Systemuserssetupuser;
 export const Systemuserssystemmanagedusertype = {
   0: 'EntraUser',
   1: 'C2User',
@@ -166,11 +116,11 @@ export interface SystemusersBase {
   address1_country?: string;
   address1_county?: string;
   address1_fax?: string;
-  address1_latitude?: string;
+  address1_latitude?: number;
   address1_line1?: string;
   address1_line2?: string;
   address1_line3?: string;
-  address1_longitude?: string;
+  address1_longitude?: number;
   address1_name?: string;
   address1_postalcode?: string;
   address1_postofficebox?: string;
@@ -180,18 +130,18 @@ export interface SystemusersBase {
   address1_telephone2?: string;
   address1_telephone3?: string;
   address1_upszone?: string;
-  address1_utcoffset?: string;
+  address1_utcoffset?: number;
   address2_addressid?: string;
   address2_addresstypecode?: Systemusersaddress2_addresstypecode;
   address2_city?: string;
   address2_country?: string;
   address2_county?: string;
   address2_fax?: string;
-  address2_latitude?: string;
+  address2_latitude?: number;
   address2_line1?: string;
   address2_line2?: string;
   address2_line3?: string;
-  address2_longitude?: string;
+  address2_longitude?: number;
   address2_name?: string;
   address2_postalcode?: string;
   address2_postofficebox?: string;
@@ -201,13 +151,13 @@ export interface SystemusersBase {
   address2_telephone2?: string;
   address2_telephone3?: string;
   address2_upszone?: string;
-  address2_utcoffset?: string;
+  address2_utcoffset?: number;
   applicationid?: string;
   azurestate: Systemusersazurestate;
   "BusinessUnitId@odata.bind": string;
   "CalendarId@odata.bind"?: string;
   caltype: Systemuserscaltype;
-  displayinserviceviews?: Systemusersdisplayinserviceviews;
+  displayinserviceviews?: boolean;
   domainname: string;
   emailrouteraccessapproval: Systemusersemailrouteraccessapproval;
   employeeid?: string;
@@ -215,15 +165,15 @@ export interface SystemusersBase {
   firstname: string;
   governmentid?: string;
   homephone?: string;
-  importsequencenumber?: string;
+  importsequencenumber?: number;
   incomingemaildeliverymethod: Systemusersincomingemaildeliverymethod;
   internalemailaddress: string;
   invitestatuscode: Systemusersinvitestatuscode;
-  isallowedbyipfirewall?: Systemusersisallowedbyipfirewall;
-  isdisabled?: Systemusersisdisabled;
-  isintegrationuser: Systemusersisintegrationuser;
-  islicensed: Systemusersislicensed;
-  issyncwithdirectory: Systemusersissyncwithdirectory;
+  isallowedbyipfirewall?: boolean;
+  isdisabled?: boolean;
+  isintegrationuser: boolean;
+  islicensed: boolean;
+  issyncwithdirectory: boolean;
   jobtitle?: string;
   lastname: string;
   middlename?: string;
@@ -234,8 +184,8 @@ export interface SystemusersBase {
   outgoingemaildeliverymethod: Systemusersoutgoingemaildeliverymethod;
   overriddencreatedon?: string;
   "ParentSystemUserId@odata.bind"?: string;
-  passporthi?: string;
-  passportlo?: string;
+  passporthi?: number;
+  passportlo?: number;
   personalemailaddress?: string;
   photourl?: string;
   "PositionId@odata.bind"?: string;
@@ -245,19 +195,19 @@ export interface SystemusersBase {
   processid?: string;
   "QueueId@odata.bind"?: string;
   salutation?: string;
-  setupuser: Systemuserssetupuser;
+  setupuser: boolean;
   sharepointemailaddress?: string;
   skills?: string;
   stageid?: string;
   systemmanagedusertype: Systemuserssystemmanagedusertype;
   systemuserid: string;
   "TerritoryId@odata.bind"?: string;
-  timezoneruleversionnumber?: string;
+  timezoneruleversionnumber?: number;
   title?: string;
   "TransactionCurrencyId@odata.bind"?: string;
   traversedpath?: string;
-  userlicensetype: string;
-  utcconversiontimezonecode?: string;
+  userlicensetype: number;
+  utcconversiontimezonecode?: number;
   windowsliveid?: string;
   yammeremailaddress?: string;
   yammeruserid?: string;
@@ -286,7 +236,7 @@ export interface Systemusers extends SystemusersBase {
   createdon?: string;
   createdonbehalfbyname?: string;
   createdonbehalfbyyominame?: string;
-  defaultfilterspopulated: Systemusersdefaultfilterspopulated;
+  defaultfilterspopulated: boolean;
   defaultmailboxname?: string;
   defaultodbfoldername: string;
   deletedstate: Systemusersdeletedstate;
@@ -294,18 +244,18 @@ export interface Systemusers extends SystemusersBase {
   disabledreason?: string;
   displayinserviceviewsname?: string;
   emailrouteraccessapprovalname?: string;
-  entityimage_timestamp?: string;
+  entityimage_timestamp?: number;
   entityimage_url?: string;
   entityimageid?: string;
-  exchangerate?: string;
+  exchangerate?: number;
   fullname?: string;
-  identityid: string;
+  identityid: number;
   incomingemaildeliverymethodname?: string;
   invitestatuscodename?: string;
-  isactivedirectoryuser: Systemusersisactivedirectoryuser;
+  isactivedirectoryuser: boolean;
   isallowedbyipfirewallname?: string;
   isdisabledname?: string;
-  isemailaddressapprovedbyo365admin: Systemusersisemailaddressapprovedbyo365admin;
+  isemailaddressapprovedbyo365admin: boolean;
   isintegrationusername?: string;
   islicensedname?: string;
   latestupdatetime?: string;
@@ -329,7 +279,7 @@ export interface Systemusers extends SystemusersBase {
   territoryidname: string;
   transactioncurrencyidname?: string;
   userpuid?: string;
-  versionnumber?: string;
+  versionnumber?: number;
   yomifullname?: string;
   businessunitid?: object;
   _businessunitid_value?: string;
@@ -358,3 +308,6 @@ export interface Systemusers extends SystemusersBase {
   transactioncurrencyid?: object;
   _transactioncurrencyid_value?: string;
 }
+export type SystemusersImageColumnName = 'entityimage';
+
+export type SystemusersUploadColumnName = SystemusersImageColumnName;
