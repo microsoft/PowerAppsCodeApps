@@ -26,7 +26,8 @@ export function ApiActionsPanel({ currentUser, loading, error }: ApiActionsPanel
         <p>
           Use <code>npx power-apps find-dataverse-api</code> to discover actions and functions
           in your environment, then <code>npx power-apps add-dataverse-api</code> to generate
-          a typed service. Three patterns are shown below.
+          a typed service. These Dataverse API generators are not currently available via
+          <code> pac </code>. Three patterns are shown below.
         </p>
       </div>
 
