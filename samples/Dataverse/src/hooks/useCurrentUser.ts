@@ -35,10 +35,10 @@ export function useCurrentUser() {
         const result = await WhoAmIService.WhoAmI();
 
         if (!cancelled) {
-          if (result.data) {
+          if (result.success && result.data) {
             setCurrentUser(result.data as unknown as WhoAmIResult);
           } else {
-            setError('WhoAmI returned no data');
+            setError(result.error?.message ?? 'WhoAmI returned no data');
           }
         }
       } catch (err) {
