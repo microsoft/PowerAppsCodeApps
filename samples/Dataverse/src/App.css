@@ -418,6 +418,230 @@ button:active {
   box-shadow: 0 6px 18px rgba(192, 59, 196, 0.3);
 }
 
+/* Functions & Actions tab */
+.apis-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Tab intro block — shared by all three tabs */
+.tab-intro {
+  background: rgba(197, 180, 227, 0.15);
+  border: 1px solid rgba(197, 180, 227, 0.4);
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tab-intro h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #702573;
+}
+
+.tab-intro p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(112, 37, 115, 0.75);
+  line-height: 1.55;
+}
+
+.tab-intro code {
+  background: rgba(197, 180, 227, 0.35);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.825rem;
+  color: #702573;
+}
+
+.apis-intro {
+  background: rgba(197, 180, 227, 0.15);
+  border: 1px solid rgba(197, 180, 227, 0.4);
+  border-radius: 12px;
+  padding: 14px 20px;
+}
+
+.apis-intro p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(112, 37, 115, 0.75);
+  line-height: 1.5;
+}
+
+.apis-intro code {
+  background: rgba(197, 180, 227, 0.35);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.825rem;
+  color: #702573;
+}
+
+.api-entry {
+  background: #ffffff;
+  border: 1px solid rgba(197, 180, 227, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(112, 37, 115, 0.06);
+}
+
+.api-entry-meta {
+  padding: 20px 28px 18px;
+  border-bottom: 1px solid rgba(197, 180, 227, 0.3);
+  background: linear-gradient(135deg, #faf9fb 0%, #f4f3f5 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.api-entry-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #702573;
+}
+
+.api-entry-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(112, 37, 115, 0.7);
+  line-height: 1.5;
+}
+
+.api-entry-desc code {
+  background: rgba(197, 180, 227, 0.3);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.825rem;
+  color: #702573;
+}
+
+.api-entry-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+.api-section {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(197, 180, 227, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.api-section:last-child {
+  border-right: none;
+}
+
+.api-section h4 {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(112, 37, 115, 0.5);
+}
+
+.api-section--response {
+  background: rgba(197, 180, 227, 0.06);
+}
+
+.api-code {
+  margin: 0;
+  background: rgba(197, 180, 227, 0.12);
+  border: 1px solid rgba(197, 180, 227, 0.35);
+  border-radius: 6px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  flex: 1;
+}
+
+.api-code code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.775rem;
+  color: #702573;
+  white-space: pre;
+  line-height: 1.55;
+}
+
+.api-response-json {
+  margin: 0;
+  background: rgba(112, 37, 115, 0.06);
+  border: 1px solid rgba(112, 37, 115, 0.15);
+  border-radius: 6px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  flex: 1;
+}
+
+.api-response-json code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.775rem;
+  color: #702573;
+  white-space: pre;
+  line-height: 1.55;
+}
+
+.api-response-json--void {
+  background: rgba(197, 180, 227, 0.08);
+  border-color: rgba(197, 180, 227, 0.3);
+}
+
+.api-response-json--void code {
+  color: rgba(112, 37, 115, 0.5);
+  font-style: italic;
+}
+
+.api-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.api-badge--function {
+  background: rgba(112, 37, 115, 0.1);
+  color: #702573;
+}
+
+.api-badge--action {
+  background: rgba(192, 59, 196, 0.1);
+  color: #c03bc4;
+}
+
+.api-badge--bound {
+  background: rgba(213, 158, 215, 0.25);
+  color: #702573;
+}
+
+.api-status {
+  margin: 0;
+  color: rgba(112, 37, 115, 0.6);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.api-error {
+  margin: 0;
+  color: #c03bc4;
+  font-size: 0.85rem;
+  background: rgba(192, 59, 196, 0.08);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
 /* Footer */
 footer {
   text-align: center;

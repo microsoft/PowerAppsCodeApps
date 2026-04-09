@@ -222,7 +222,8 @@ export interface AccountsBase {
   adx_modifiedbyipaddress?: string;
   adx_modifiedbyusername?: string;
   businesstypecode?: Accountsbusinesstypecode;
-  cr3d5_imagecol?: string;
+  "crd1b_aimodel@odata.bind"?: string;
+  "crd1b_ContactPerson@odata.bind"?: string;
   creditlimit?: number;
   creditonhold?: boolean;
   customersizecode?: Accountscustomersizecode;
@@ -307,13 +308,11 @@ export interface Accounts extends AccountsBase {
   aging90?: number;
   aging90_base?: number;
   businesstypecodename?: string;
-  cr3d5_filecol?: string;
-  cr3d5_filecol_name?: string;
-  cr3d5_filecol2?: string;
-  cr3d5_filecol2_name?: string;
-  cr3d5_imagecol_timestamp?: number;
-  cr3d5_imagecol_url?: string;
-  cr3d5_imagecolid?: string;
+  crd1b_accountfileattachment?: string;
+  crd1b_accountfileattachment_name?: string;
+  crd1b_aimodelname?: string;
+  crd1b_contactpersonname?: string;
+  crd1b_contactpersonyominame?: string;
   createdbyexternalpartyname?: string;
   createdbyexternalpartyyominame?: string;
   createdbyname?: string;
@@ -381,6 +380,10 @@ export interface Accounts extends AccountsBase {
   timespentbymeonemailandmeetings?: string;
   transactioncurrencyidname?: string;
   versionnumber?: number;
+  crd1b_aimodel?: object;
+  _crd1b_aimodel_value?: string;
+  crd1b_contactperson?: object;
+  _crd1b_contactperson_value?: string;
   createdby?: object;
   _createdby_value?: string;
   createdbyexternalparty?: object;
@@ -416,8 +419,8 @@ export interface Accounts extends AccountsBase {
   transactioncurrencyid?: object;
   _transactioncurrencyid_value?: string;
 }
-export type AccountsFileColumnName = 'cr3d5_filecol' | 'cr3d5_filecol2';
+export type AccountsFileColumnName = 'crd1b_accountfileattachment';
 
-export type AccountsImageColumnName = 'cr3d5_imagecol' | 'entityimage';
+export type AccountsImageColumnName = 'entityimage';
 
 export type AccountsUploadColumnName = AccountsFileColumnName | AccountsImageColumnName;

@@ -20,12 +20,12 @@ export type Transactioncurrenciesstatuscode = keyof typeof Transactioncurrencies
 
 export interface TransactioncurrenciesBase {
   currencyname: string;
-  currencyprecision: string;
+  currencyprecision: number;
   currencysymbol: string;
   currencytype: Transactioncurrenciescurrencytype;
   entityimage?: string;
-  exchangerate: string;
-  importsequencenumber?: string;
+  exchangerate: number;
+  importsequencenumber?: number;
   isocurrencycode: string;
   overriddencreatedon?: string;
   statecode: Transactioncurrenciesstatecode;
@@ -40,7 +40,7 @@ export interface Transactioncurrencies extends TransactioncurrenciesBase {
   createdonbehalfbyname?: string;
   createdonbehalfbyyominame?: string;
   currencytypename?: string;
-  entityimage_timestamp?: string;
+  entityimage_timestamp?: number;
   entityimage_url?: string;
   entityimageid?: string;
   modifiedbyname?: string;
@@ -51,7 +51,7 @@ export interface Transactioncurrencies extends TransactioncurrenciesBase {
   statecodename?: string;
   statuscodename?: string;
   uniquedscid?: string;
-  versionnumber?: string;
+  versionnumber?: number;
   createdby?: object;
   _createdby_value?: string;
   createdonbehalfby?: object;
@@ -63,3 +63,6 @@ export interface Transactioncurrencies extends TransactioncurrenciesBase {
   organizationid?: object;
   _organizationid_value?: string;
 }
+export type TransactioncurrenciesImageColumnName = 'entityimage';
+
+export type TransactioncurrenciesUploadColumnName = TransactioncurrenciesImageColumnName;

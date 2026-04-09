@@ -48,12 +48,12 @@ import {
   ContactForm,
   AccountList,
   AccountForm,
-  Footer,
+  ApiActionsPanel,
 } from './components';
-import { useContacts, useAccounts, useAccountsCrud } from './hooks';
+import { useContacts, useAccounts, useAccountsCrud, useCurrentUser } from './hooks';
 import './App.css';
 
-type ActivePage = 'contacts' | 'accounts';
+type ActivePage = 'contacts' | 'accounts' | 'apis';
 
 function App() {
   const [activePage, setActivePage] = useState<ActivePage>('contacts');
@@ -91,12 +91,16 @@ function App() {
     loadAccounts,
   } = useAccountsCrud();
 
+  // Demonstrates Dataverse functions/actions support (WhoAmI)
+  // API was added via: npx power-apps add-dataverse-api --api-name WhoAmI
+  const { currentUser, loading: userLoading, error: userError } = useCurrentUser();
+
   return (
     <div className="app-container">
       {/* Header Section */}
       <Header
         title="Dataverse Demo App"
-        description="Demonstrating CRUD operations with Power Apps Code Apps"
+        description="Demonstrating the use of Dataverse with Power Apps Code Apps — CRUD, file storage, and custom APIs"
       />
 
       {/* Page Navigation Tabs */}
@@ -105,19 +109,34 @@ function App() {
           className={`tab-btn ${activePage === 'contacts' ? 'active' : ''}`}
           onClick={() => setActivePage('contacts')}
         >
-          Contacts
+          CRUD
         </button>
         <button
           className={`tab-btn ${activePage === 'accounts' ? 'active' : ''}`}
           onClick={() => setActivePage('accounts')}
         >
-          Accounts
+          File Attachments
+        </button>
+        <button
+          className={`tab-btn ${activePage === 'apis' ? 'active' : ''}`}
+          onClick={() => setActivePage('apis')}
+        >
+          Functions &amp; Actions
         </button>
       </nav>
 
-      {/* Contacts Page */}
+      {/* CRUD Tab */}
       {activePage === 'contacts' && (
         <>
+          <div className="tab-intro">
+            <h3>CRUD Operations</h3>
+            <p>
+              Demonstrates <strong>Create</strong>, <strong>Read</strong>, <strong>Update</strong>,
+              and <strong>Delete</strong> on Contact records using auto-generated services from{' '}
+              <code>pac code add-data-source</code>. Lookup fields link contacts to accounts
+              via OData bind syntax. Select a contact to edit, or create a new one.
+            </p>
+          </div>
           <ErrorMessage error={contactsError} />
           <div className="content-grid">
             <ContactList
@@ -141,9 +160,20 @@ function App() {
         </>
       )}
 
-      {/* Accounts Page */}
+      {/* File Attachments Tab */}
       {activePage === 'accounts' && (
         <>
+          <div className="tab-intro">
+            <h3>Dataverse File Attachments</h3>
+            <p>
+              Demonstrates <strong>file upload</strong>, <strong>download</strong>, and{' '}
+              <strong>delete</strong> on file and image columns using{' '}
+              <code>AccountsService.upload()</code>, <code>downloadFile()</code>,{' '}
+              <code>downloadImage()</code>, and <code>deleteFileOrImage()</code> — all generated
+              by <code>pac code add-data-source</code>. Select an account and scroll to the
+              Attachments section to try it.
+            </p>
+          </div>
           <ErrorMessage error={accountsError} />
           <div className="content-grid">
             <AccountList
@@ -167,8 +197,15 @@ function App() {
         </>
       )}
 
-      {/* Footer Section */}
-      <Footer />
+      {/* Functions & Actions Tab */}
+      {activePage === 'apis' && (
+        <ApiActionsPanel
+          currentUser={currentUser}
+          loading={userLoading}
+          error={userError}
+        />
+      )}
+
     </div>
   );
 }

@@ -54,56 +54,6 @@ export const Contactsaddress3_shippingmethodcode = {
   1: 'DefaultValue'
 } as const;
 export type Contactsaddress3_shippingmethodcode = keyof typeof Contactsaddress3_shippingmethodcode;
-export const Contactsadx_confirmremovepassword = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_confirmremovepassword = keyof typeof Contactsadx_confirmremovepassword;
-export const Contactsadx_identity_emailaddress1confirmed = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_emailaddress1confirmed = keyof typeof Contactsadx_identity_emailaddress1confirmed;
-export const Contactsadx_identity_locallogindisabled = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_locallogindisabled = keyof typeof Contactsadx_identity_locallogindisabled;
-export const Contactsadx_identity_lockoutenabled = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_lockoutenabled = keyof typeof Contactsadx_identity_lockoutenabled;
-export const Contactsadx_identity_logonenabled = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_logonenabled = keyof typeof Contactsadx_identity_logonenabled;
-export const Contactsadx_identity_mobilephoneconfirmed = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_mobilephoneconfirmed = keyof typeof Contactsadx_identity_mobilephoneconfirmed;
-export const Contactsadx_identity_twofactorenabled = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_identity_twofactorenabled = keyof typeof Contactsadx_identity_twofactorenabled;
-export const Contactsadx_profilealert = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_profilealert = keyof typeof Contactsadx_profilealert;
-export const Contactsadx_profileisanonymous = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsadx_profileisanonymous = keyof typeof Contactsadx_profileisanonymous;
-export const Contactscreditonhold = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactscreditonhold = keyof typeof Contactscreditonhold;
 export const Contactscustomersizecode = {
   1: 'DefaultValue'
 } as const;
@@ -112,41 +62,6 @@ export const Contactscustomertypecode = {
   1: 'DefaultValue'
 } as const;
 export type Contactscustomertypecode = keyof typeof Contactscustomertypecode;
-export const Contactsdonotbulkemail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Contactsdonotbulkemail = keyof typeof Contactsdonotbulkemail;
-export const Contactsdonotbulkpostalmail = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsdonotbulkpostalmail = keyof typeof Contactsdonotbulkpostalmail;
-export const Contactsdonotemail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Contactsdonotemail = keyof typeof Contactsdonotemail;
-export const Contactsdonotfax = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Contactsdonotfax = keyof typeof Contactsdonotfax;
-export const Contactsdonotphone = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Contactsdonotphone = keyof typeof Contactsdonotphone;
-export const Contactsdonotpostalmail = {
-  0: 'Allow',
-  1: 'DoNotAllow'
-} as const;
-export type Contactsdonotpostalmail = keyof typeof Contactsdonotpostalmail;
-export const Contactsdonotsendmm = {
-  0: 'Send',
-  1: 'DoNotSend'
-} as const;
-export type Contactsdonotsendmm = keyof typeof Contactsdonotsendmm;
 export const Contactseducationcode = {
   1: 'DefaultValue'
 } as const;
@@ -158,11 +73,6 @@ export const Contactsfamilystatuscode = {
   4: 'Widowed'
 } as const;
 export type Contactsfamilystatuscode = keyof typeof Contactsfamilystatuscode;
-export const Contactsfollowemail = {
-  0: 'DoNotAllow',
-  1: 'Allow'
-} as const;
-export type Contactsfollowemail = keyof typeof Contactsfollowemail;
 export const Contactsgendercode = {
   1: 'Male',
   2: 'Female'
@@ -172,50 +82,10 @@ export const Contactshaschildrencode = {
   1: 'DefaultValue'
 } as const;
 export type Contactshaschildrencode = keyof typeof Contactshaschildrencode;
-export const Contactsisautocreate = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsisautocreate = keyof typeof Contactsisautocreate;
-export const Contactsisbackofficecustomer = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsisbackofficecustomer = keyof typeof Contactsisbackofficecustomer;
-export const Contactsisprivate = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsisprivate = keyof typeof Contactsisprivate;
 export const Contactsleadsourcecode = {
   1: 'DefaultValue'
 } as const;
 export type Contactsleadsourcecode = keyof typeof Contactsleadsourcecode;
-export const Contactsmarketingonly = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsmarketingonly = keyof typeof Contactsmarketingonly;
-export const Contactsmerged = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsmerged = keyof typeof Contactsmerged;
-export const Contactsmsdyn_disablewebtracking = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsmsdyn_disablewebtracking = keyof typeof Contactsmsdyn_disablewebtracking;
-export const Contactsmsdyn_isminor = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsmsdyn_isminor = keyof typeof Contactsmsdyn_isminor;
-export const Contactsmsdyn_isminorwithparentalconsent = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsmsdyn_isminorwithparentalconsent = keyof typeof Contactsmsdyn_isminorwithparentalconsent;
 export const Contactsmspp_userpreferredlcid = {
   1025: 'Arabic',
   1069: 'Basque_Basque',
@@ -264,11 +134,6 @@ export const Contactsmspp_userpreferredlcid = {
   1066: 'Vietnamese_Vietnam'
 } as const;
 export type Contactsmspp_userpreferredlcid = keyof typeof Contactsmspp_userpreferredlcid;
-export const Contactsparticipatesinworkflow = {
-  0: 'No',
-  1: 'Yes'
-} as const;
-export type Contactsparticipatesinworkflow = keyof typeof Contactsparticipatesinworkflow;
 export const Contactspaymenttermscode = {
   1: 'Net30',
   2: '_2_10_Net30',
@@ -328,11 +193,11 @@ export interface ContactsBase {
   address1_county?: string;
   address1_fax?: string;
   address1_freighttermscode?: Contactsaddress1_freighttermscode;
-  address1_latitude?: string;
+  address1_latitude?: number;
   address1_line1?: string;
   address1_line2?: string;
   address1_line3?: string;
-  address1_longitude?: string;
+  address1_longitude?: number;
   address1_name?: string;
   address1_postalcode?: string;
   address1_postofficebox?: string;
@@ -343,7 +208,7 @@ export interface ContactsBase {
   address1_telephone2?: string;
   address1_telephone3?: string;
   address1_upszone?: string;
-  address1_utcoffset?: string;
+  address1_utcoffset?: number;
   address2_addressid?: string;
   address2_addresstypecode?: Contactsaddress2_addresstypecode;
   address2_city?: string;
@@ -351,11 +216,11 @@ export interface ContactsBase {
   address2_county?: string;
   address2_fax?: string;
   address2_freighttermscode?: Contactsaddress2_freighttermscode;
-  address2_latitude?: string;
+  address2_latitude?: number;
   address2_line1?: string;
   address2_line2?: string;
   address2_line3?: string;
-  address2_longitude?: string;
+  address2_longitude?: number;
   address2_name?: string;
   address2_postalcode?: string;
   address2_postofficebox?: string;
@@ -366,7 +231,7 @@ export interface ContactsBase {
   address2_telephone2?: string;
   address2_telephone3?: string;
   address2_upszone?: string;
-  address2_utcoffset?: string;
+  address2_utcoffset?: number;
   address3_addressid?: string;
   address3_addresstypecode?: Contactsaddress3_addresstypecode;
   address3_city?: string;
@@ -374,11 +239,11 @@ export interface ContactsBase {
   address3_county?: string;
   address3_fax?: string;
   address3_freighttermscode?: Contactsaddress3_freighttermscode;
-  address3_latitude?: string;
+  address3_latitude?: number;
   address3_line1?: string;
   address3_line2?: string;
   address3_line3?: string;
-  address3_longitude?: string;
+  address3_longitude?: number;
   address3_name?: string;
   address3_postalcode?: string;
   address3_postofficebox?: string;
@@ -389,37 +254,37 @@ export interface ContactsBase {
   address3_telephone2?: string;
   address3_telephone3?: string;
   address3_upszone?: string;
-  address3_utcoffset?: string;
-  adx_confirmremovepassword?: Contactsadx_confirmremovepassword;
+  address3_utcoffset?: number;
+  adx_confirmremovepassword?: boolean;
   adx_createdbyipaddress?: string;
   adx_createdbyusername?: string;
-  adx_identity_accessfailedcount?: string;
-  adx_identity_emailaddress1confirmed?: Contactsadx_identity_emailaddress1confirmed;
+  adx_identity_accessfailedcount?: number;
+  adx_identity_emailaddress1confirmed?: boolean;
   adx_identity_lastsuccessfullogin?: string;
-  adx_identity_locallogindisabled?: Contactsadx_identity_locallogindisabled;
-  adx_identity_lockoutenabled?: Contactsadx_identity_lockoutenabled;
+  adx_identity_locallogindisabled?: boolean;
+  adx_identity_lockoutenabled?: boolean;
   adx_identity_lockoutenddate?: string;
-  adx_identity_logonenabled?: Contactsadx_identity_logonenabled;
-  adx_identity_mobilephoneconfirmed?: Contactsadx_identity_mobilephoneconfirmed;
+  adx_identity_logonenabled?: boolean;
+  adx_identity_mobilephoneconfirmed?: boolean;
   adx_identity_newpassword?: string;
   adx_identity_passwordhash?: string;
   adx_identity_securitystamp?: string;
-  adx_identity_twofactorenabled?: Contactsadx_identity_twofactorenabled;
+  adx_identity_twofactorenabled?: boolean;
   adx_identity_username?: string;
   adx_modifiedbyipaddress?: string;
   adx_modifiedbyusername?: string;
   adx_organizationname?: string;
-  adx_preferredlcid?: string;
-  adx_profilealert?: Contactsadx_profilealert;
+  adx_preferredlcid?: number;
+  adx_profilealert?: boolean;
   adx_profilealertdate?: string;
   adx_profilealertinstructions?: string;
-  adx_profileisanonymous?: Contactsadx_profileisanonymous;
+  adx_profileisanonymous?: boolean;
   adx_profilelastactivity?: string;
   adx_profilemodifiedon?: string;
   adx_publicprofilecopy?: string;
-  adx_timezone?: string;
+  adx_timezone?: number;
   anniversary?: string;
-  annualincome?: string;
+  annualincome?: number;
   assistantname?: string;
   assistantphone?: string;
   birthdate?: string;
@@ -428,19 +293,19 @@ export interface ContactsBase {
   childrensnames?: string;
   company?: string;
   contactid: string;
-  creditlimit?: string;
-  creditonhold?: Contactscreditonhold;
+  creditlimit?: number;
+  creditonhold?: boolean;
   customersizecode?: Contactscustomersizecode;
   customertypecode?: Contactscustomertypecode;
   department?: string;
   description?: string;
-  donotbulkemail?: Contactsdonotbulkemail;
-  donotbulkpostalmail?: Contactsdonotbulkpostalmail;
-  donotemail?: Contactsdonotemail;
-  donotfax?: Contactsdonotfax;
-  donotphone?: Contactsdonotphone;
-  donotpostalmail?: Contactsdonotpostalmail;
-  donotsendmm?: Contactsdonotsendmm;
+  donotbulkemail?: boolean;
+  donotbulkpostalmail?: boolean;
+  donotemail?: boolean;
+  donotfax?: boolean;
+  donotphone?: boolean;
+  donotpostalmail?: boolean;
+  donotsendmm?: boolean;
   educationcode?: Contactseducationcode;
   emailaddress1?: string;
   emailaddress2?: string;
@@ -451,14 +316,14 @@ export interface ContactsBase {
   familystatuscode?: Contactsfamilystatuscode;
   fax?: string;
   firstname?: string;
-  followemail?: Contactsfollowemail;
+  followemail?: boolean;
   ftpsiteurl?: string;
   gendercode?: Contactsgendercode;
   governmentid?: string;
   haschildrencode?: Contactshaschildrencode;
   home2?: string;
-  importsequencenumber?: string;
-  isbackofficecustomer?: Contactsisbackofficecustomer;
+  importsequencenumber?: number;
+  isbackofficecustomer?: boolean;
   jobtitle?: string;
   lastname: string;
   lastonholdtime?: string;
@@ -466,24 +331,24 @@ export interface ContactsBase {
   leadsourcecode?: Contactsleadsourcecode;
   managername?: string;
   managerphone?: string;
-  marketingonly?: Contactsmarketingonly;
+  marketingonly?: boolean;
   middlename?: string;
   mobilephone?: string;
   "msa_managingpartnerid@odata.bind"?: string;
-  msdyn_disablewebtracking?: Contactsmsdyn_disablewebtracking;
-  msdyn_isminor?: Contactsmsdyn_isminor;
-  msdyn_isminorwithparentalconsent?: Contactsmsdyn_isminorwithparentalconsent;
+  msdyn_disablewebtracking?: boolean;
+  msdyn_isminor?: boolean;
+  msdyn_isminorwithparentalconsent?: boolean;
   msdyn_portaltermsagreementdate?: string;
   mspp_userpreferredlcid?: Contactsmspp_userpreferredlcid;
   nickname?: string;
-  numberofchildren?: string;
+  numberofchildren?: number;
   overriddencreatedon?: string;
   ownerid: string;
   owneridtype: string;
   pager?: string;
   parentcustomerid?: string;
   parentcustomeridtype?: string;
-  participatesinworkflow?: Contactsparticipatesinworkflow;
+  participatesinworkflow?: boolean;
   paymenttermscode?: Contactspaymenttermscode;
   preferredappointmentdaycode?: Contactspreferredappointmentdaycode;
   preferredappointmenttimecode?: Contactspreferredappointmenttimecode;
@@ -503,10 +368,10 @@ export interface ContactsBase {
   telephone2?: string;
   telephone3?: string;
   territorycode?: Contactsterritorycode;
-  timezoneruleversionnumber?: string;
+  timezoneruleversionnumber?: number;
   "TransactionCurrencyId@odata.bind"?: string;
   traversedpath?: string;
-  utcconversiontimezonecode?: string;
+  utcconversiontimezonecode?: number;
   websiteurl?: string;
   yomifirstname?: string;
   yomilastname?: string;
@@ -538,13 +403,13 @@ export interface Contacts extends ContactsBase {
   adx_identity_twofactorenabledname?: string;
   adx_profilealertname?: string;
   adx_profileisanonymousname?: string;
-  aging30?: string;
-  aging30_base?: string;
-  aging60?: string;
-  aging60_base?: string;
-  aging90?: string;
-  aging90_base?: string;
-  annualincome_base?: string;
+  aging30?: number;
+  aging30_base?: number;
+  aging60?: number;
+  aging60_base?: number;
+  aging90?: number;
+  aging90_base?: number;
+  annualincome_base?: number;
   createdbyexternalpartyname?: string;
   createdbyexternalpartyyominame?: string;
   createdbyname?: string;
@@ -552,7 +417,7 @@ export interface Contacts extends ContactsBase {
   createdon?: string;
   createdonbehalfbyname?: string;
   createdonbehalfbyyominame?: string;
-  creditlimit_base?: string;
+  creditlimit_base?: number;
   creditonholdname?: string;
   customersizecodename?: string;
   customertypecodename?: string;
@@ -564,24 +429,24 @@ export interface Contacts extends ContactsBase {
   donotpostalmailname?: string;
   donotsendmarketingmaterialname?: string;
   educationcodename?: string;
-  entityimage_timestamp?: string;
+  entityimage_timestamp?: number;
   entityimage_url?: string;
   entityimageid?: string;
-  exchangerate?: string;
+  exchangerate?: number;
   familystatuscodename?: string;
   followemailname?: string;
   fullname?: string;
   gendercodename?: string;
   haschildrencodename?: string;
-  isautocreate?: Contactsisautocreate;
+  isautocreate?: boolean;
   isbackofficecustomername?: string;
-  isprivate?: Contactsisprivate;
+  isprivate?: boolean;
   isprivatename?: string;
   leadsourcecodename?: string;
   marketingonlyname?: string;
   mastercontactidname?: string;
   mastercontactidyominame?: string;
-  merged?: Contactsmerged;
+  merged?: boolean;
   mergedname?: string;
   modifiedbyexternalpartyname?: string;
   modifiedbyexternalpartyyominame?: string;
@@ -596,7 +461,7 @@ export interface Contacts extends ContactsBase {
   msdyn_isminorname?: string;
   msdyn_isminorwithparentalconsentname?: string;
   mspp_userpreferredlcidname?: string;
-  onholdtime?: string;
+  onholdtime?: number;
   owneridname: string;
   owneridyominame: string;
   owningbusinessunitname?: string;
@@ -619,7 +484,7 @@ export interface Contacts extends ContactsBase {
   territorycodename?: string;
   timespentbymeonemailandmeetings?: string;
   transactioncurrencyidname?: string;
-  versionnumber?: string;
+  versionnumber?: number;
   yomifullname?: string;
   accountid?: object;
   _accountid_value?: string;
@@ -656,3 +521,6 @@ export interface Contacts extends ContactsBase {
   transactioncurrencyid?: object;
   _transactioncurrencyid_value?: string;
 }
+export type ContactsImageColumnName = 'entityimage';
+
+export type ContactsUploadColumnName = ContactsImageColumnName;

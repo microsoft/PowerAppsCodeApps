@@ -12,6 +12,7 @@ export { AccountCard } from './AccountCard';
 export { AccountList } from './AccountList';
 export { AccountForm } from './AccountForm';
 export { Footer } from './Footer';
+export { ApiActionsPanel } from './ApiActionsPanel';
 
 export type { ContactFormData } from './ContactForm';
 export type { AccountFormData } from './AccountForm';

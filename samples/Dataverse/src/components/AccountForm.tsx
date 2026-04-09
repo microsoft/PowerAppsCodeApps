@@ -64,7 +64,7 @@ export function AccountForm({
 
   // --- Attachment sub-form state ---
   const [attachmentFile, setAttachmentFile] = useState<File | null>(null);
-  const [columnName, setColumnName] = useState<AccountsUploadColumnName>('cr3d5_filecol');
+  const [columnName, setColumnName] = useState<AccountsUploadColumnName>('crd1b_accountfileattachment');
   const [fileDisplayName, setFileDisplayName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [isClearingFile, setIsClearingFile] = useState(false);
@@ -102,7 +102,7 @@ export function AccountForm({
     }
     // Reset attachment state when account changes
     setAttachmentFile(null);
-    setColumnName('cr3d5_filecol');
+    setColumnName('crd1b_accountfileattachment');
     setFileDisplayName('');
   }, [selectedAccount, isCreating]);
 
@@ -140,8 +140,7 @@ export function AccountForm({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     setAttachmentFile(file);
-    // Pre-fill column name with cr3d5_filecol; user can override if needed
-    setColumnName('cr3d5_filecol');
+    setColumnName('crd1b_accountfileattachment');
     setFileDisplayName('');
   };
 
@@ -176,7 +175,7 @@ export function AccountForm({
 
   const handleDownloadImage = async (fallbackFileName: string) => {
     if (!selectedAccount?.accountid) return;
-    const imageCol: AccountsImageColumnName = 'cr3d5_imagecol';
+    const imageCol: AccountsImageColumnName = 'entityimage';
     setDownloadingCol(imageCol);
     try {
       const result = await AccountsService.downloadImage(selectedAccount.accountid, imageCol, imageFullSize);
@@ -227,7 +226,7 @@ export function AccountForm({
         onUploadSuccess?.();
         // Reset attachment fields on success
         setAttachmentFile(null);
-        setColumnName('cr3d5_filecol');
+        setColumnName('crd1b_accountfileattachment');
         setFileDisplayName('');
         // Reset the file input element
         const fileInput = document.getElementById('attachment-file') as HTMLInputElement;
@@ -361,26 +360,26 @@ export function AccountForm({
         <div className="attachment-subform">
           <h3>Attachments</h3>
 
-          {/* Current file stored in cr3d5_filecol */}
+          {/* Current file stored in crd1b_accountfileattachment */}
           <div className="form-group">
-            <label>cr3d5_filecol (current value)</label>
-            {selectedAccount.cr3d5_filecol_name ? (
+            <label>crd1b_accountfileattachment (current value)</label>
+            {selectedAccount.crd1b_accountfileattachment_name ? (
               <div className="file-current">
                 <span className="file-current-icon">📄</span>
-                <span className="file-current-name">{selectedAccount.cr3d5_filecol_name}</span>
+                <span className="file-current-name">{selectedAccount.crd1b_accountfileattachment_name}</span>
                 <button
                   type="button"
                   className="file-action-btn"
-                  onClick={() => handleDownload('cr3d5_filecol', selectedAccount.cr3d5_filecol_name!)}
-                  disabled={downloadingCol === 'cr3d5_filecol'}
+                  onClick={() => handleDownload('crd1b_accountfileattachment', selectedAccount.crd1b_accountfileattachment_name!)}
+                  disabled={downloadingCol === 'crd1b_accountfileattachment'}
                   title="Download file"
                 >
-                  {downloadingCol === 'cr3d5_filecol' ? '…' : '⬇'}
+                  {downloadingCol === 'crd1b_accountfileattachment' ? '…' : '⬇'}
                 </button>
                 <button
                   type="button"
                   className="file-clear-btn"
-                  onClick={() => handleClearFile('cr3d5_filecol')}
+                  onClick={() => handleClearFile('crd1b_accountfileattachment')}
                   disabled={isClearingFile}
                   title="Remove file"
                 >
@@ -392,10 +391,10 @@ export function AccountForm({
             )}
           </div>
 
-          {/* Current image stored in cr3d5_imagecol */}
+          {/* Current image stored in entityimage */}
           <div className="form-group">
-            <label>cr3d5_imagecol (current value)</label>
-            {selectedAccount.cr3d5_imagecol_url ? (
+            <label>entityimage (current value)</label>
+            {selectedAccount.entityimage ? (
               <div className="file-current">
                 <span className="file-current-name">Stored image</span>
                 <button
@@ -411,15 +410,15 @@ export function AccountForm({
                   type="button"
                   className="file-action-btn"
                   onClick={() => handleDownloadImage(selectedAccount.name || 'image')}
-                  disabled={downloadingCol === 'cr3d5_imagecol'}
+                  disabled={downloadingCol === 'entityimage'}
                   title="Download image"
                 >
-                  {downloadingCol === 'cr3d5_imagecol' ? '…' : '⬇'}
+                  {downloadingCol === 'entityimage' ? '…' : '⬇'}
                 </button>
                 <button
                   type="button"
                   className="file-clear-btn"
-                  onClick={() => handleClearFile('cr3d5_imagecol')}
+                  onClick={() => handleClearFile('entityimage')}
                   disabled={isClearingFile}
                   title="Remove image"
                 >
@@ -451,9 +450,7 @@ export function AccountForm({
                   value={columnName}
                   onChange={(e) => setColumnName(e.target.value as AccountsUploadColumnName)}
                 >
-                  <option value="cr3d5_filecol">cr3d5_filecol</option>
-                  <option value="cr3d5_filecol2">cr3d5_filecol2</option>
-                  <option value="cr3d5_imagecol">cr3d5_imagecol</option>
+                  <option value="crd1b_accountfileattachment">crd1b_accountfileattachment</option>
                   <option value="entityimage">entityimage</option>
                 </select>
                 <small>The schema name of the file/image column to upload to</small>
