@@ -18,7 +18,7 @@
   margin: 0 auto;
   padding: 40px 24px;
   font-family: 'Segoe UI', 'Segoe Sans Text', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+  background: var(--bg-page);
   min-height: 100vh;
 }
 
@@ -69,7 +69,7 @@ header p {
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-  border-bottom: 2px solid #c5b4e3;
+  border-bottom: 2px solid var(--tab-border);
   padding-bottom: 0;
 }
 
@@ -80,7 +80,7 @@ header p {
   font-size: 1rem;
   font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
   font-weight: 500;
-  color: #702573;
+  color: var(--text-secondary);
   cursor: pointer;
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
@@ -93,17 +93,17 @@ header p {
 }
 
 .tab-btn.active {
-  color: #c03bc4;
-  border-bottom-color: #c03bc4;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
   background: rgba(192, 59, 196, 0.08);
   font-weight: 600;
 }
 
 /* Error message */
 .error-message {
-  background: linear-gradient(135deg, #fee 0%, #fdd 100%);
-  border: 1px solid #fcc;
-  color: #c33;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
   padding: 16px 20px;
   border-radius: 12px;
   margin-bottom: 24px;
@@ -130,11 +130,11 @@ header p {
 
 /* Section styling */
 section {
-  background: #ffffff;
+  background: var(--bg-section);
   border-radius: 16px;
   padding: 28px;
-  border: 1px solid rgba(197, 180, 227, 0.3);
-  box-shadow: 0 4px 20px rgba(112, 37, 115, 0.08);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-section);
   backdrop-filter: blur(10px);
 }
 
@@ -144,12 +144,12 @@ section {
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(197, 180, 227, 0.4);
+  border-bottom: 2px solid var(--border-strong);
 }
 
 .section-header h2 {
   margin: 0;
-  color: #702573;
+  color: var(--text-secondary);
   font-size: 1.5rem;
   font-family: 'Segoe UI', 'Segoe Sans Display', sans-serif;
   font-weight: 700;
@@ -209,12 +209,12 @@ section {
 
 /* Contact card */
 .contact-card {
-  border: 2px solid rgba(197, 180, 227, 0.3);
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   padding: 16px 18px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  background: #ffffff;
+  background: var(--bg-card);
   position: relative;
   overflow: hidden;
 }
@@ -231,9 +231,9 @@ section {
 }
 
 .contact-card:hover {
-  border-color: #d59ed7;
+  border-color: var(--accent-medium);
   transform: translateX(4px);
-  box-shadow: 0 8px 24px rgba(197, 180, 227, 0.3);
+  box-shadow: 0 8px 24px var(--shadow-card);
 }
 
 .contact-card:hover::before {
@@ -264,7 +264,7 @@ section {
 
 .contact-card h3 {
   margin: 0 0 6px 0;
-  color: #702573;
+  color: var(--text-secondary);
   font-size: 1.05rem;
   font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
   font-weight: 600;
@@ -273,13 +273,13 @@ section {
 
 .contact-card p {
   margin: 0;
-  color: #000000;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
 }
 
 .contact-card .email {
-  color: rgba(112, 37, 115, 0.7);
+  color: var(--text-muted);
 }
 
 .card-actions {
@@ -302,7 +302,7 @@ section {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #702573;
+  color: var(--text-secondary);
   font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
   font-size: 0.95rem;
   letter-spacing: -0.1px;
@@ -312,26 +312,27 @@ section {
 .form-group select {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid rgba(197, 180, 227, 0.4);
+  border: 2px solid var(--border-strong);
   border-radius: 10px;
   font-size: 1rem;
   box-sizing: border-box;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
-  background-color: #ffffff;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #c03bc4;
+  border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(192, 59, 196, 0.1);
 }
 
 .form-group small {
   display: block;
   margin-top: 6px;
-  color: rgba(112, 37, 115, 0.7);
+  color: var(--text-muted);
   font-size: 0.85rem;
   font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
 }
@@ -396,14 +397,14 @@ button:active {
 }
 
 .btn-secondary {
-  background: #f4f3f5;
-  color: #702573;
-  border: 2px solid rgba(197, 180, 227, 0.5);
+  background: var(--bg-secondary-btn);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-file);
 }
 
 .btn-secondary:hover {
   background: rgba(197, 180, 227, 0.2);
-  border-color: #c03bc4;
+  border-color: var(--accent);
 }
 
 .btn-danger {
@@ -422,11 +423,11 @@ button:active {
 footer {
   text-align: center;
   padding: 28px;
-  background: linear-gradient(135deg, #ffffff 0%, #f4f3f5 100%);
+  background: var(--bg-footer);
   border-radius: 16px;
-  color: #702573;
-  border: 1px solid rgba(197, 180, 227, 0.3);
-  box-shadow: 0 4px 20px rgba(112, 37, 115, 0.08);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-section);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -443,7 +444,7 @@ footer code {
 /* Loading state */
 .contacts-list p {
   text-align: center;
-  color: rgba(112, 37, 115, 0.7);
+  color: var(--text-muted);
   padding: 24px;
   font-family: 'Segoe UI', 'Segoe Sans Text', sans-serif;
   font-size: 0.95rem;
@@ -458,7 +459,7 @@ footer code {
 
 .lookup-info h3 {
   margin: 0 0 16px 0;
-  color: #702573;
+  color: var(--text-secondary);
   font-size: 1.2rem;
   font-family: 'Segoe UI', 'Segoe Sans Display', sans-serif;
   font-weight: 700;
@@ -475,26 +476,26 @@ footer code {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(197, 180, 227, 0.08) 0%, rgba(213, 158, 215, 0.08) 100%);
+  background: var(--bg-lookup-field);
   border-radius: 10px;
   font-family: 'Segoe UI', 'Segoe Sans Small', sans-serif;
-  border: 1px solid rgba(197, 180, 227, 0.2);
+  border: 1px solid var(--border-color);
   transition: all 0.2s ease;
 }
 
 .lookup-field:hover {
-  background: linear-gradient(135deg, rgba(197, 180, 227, 0.15) 0%, rgba(213, 158, 215, 0.15) 100%);
-  border-color: rgba(197, 180, 227, 0.4);
+  background: var(--bg-lookup-field-hover);
+  border-color: var(--border-strong);
 }
 
 .lookup-label {
   font-weight: 600;
-  color: #702573;
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .lookup-value {
-  color: #000000;
+  color: var(--text-primary);
   font-size: 0.9rem;
   text-align: right;
   font-weight: 500;
@@ -504,8 +505,8 @@ footer code {
 .attachment-subform {
   margin-top: 32px;
   padding: 20px 24px;
-  background: rgba(197, 180, 227, 0.12);
-  border: 1px solid rgba(197, 180, 227, 0.4);
+  background: var(--bg-attachment);
+  border: 1px solid var(--border-strong);
   border-radius: 12px;
 }
 
@@ -513,7 +514,7 @@ footer code {
   margin: 0 0 16px 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #702573;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -527,8 +528,8 @@ footer code {
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  background: rgba(197, 180, 227, 0.15);
-  border: 1px solid rgba(197, 180, 227, 0.5);
+  background: var(--bg-file-current);
+  border: 1px solid var(--border-file);
   border-radius: 8px;
   font-size: 0.9rem;
 }
@@ -539,7 +540,7 @@ footer code {
 }
 
 .file-current-name {
-  color: #702573;
+  color: var(--text-secondary);
   font-weight: 500;
   word-break: break-all;
   flex: 1;
@@ -550,14 +551,14 @@ footer code {
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(112, 37, 115, 0.6);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1;
   padding: 0 2px;
 }
 
 .file-action-btn:hover:not(:disabled) {
-  color: #702573;
+  color: var(--text-secondary);
 }
 
 .file-action-btn:disabled {
@@ -571,7 +572,7 @@ footer code {
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(112, 37, 115, 0.6);
+  color: var(--text-muted);
   font-size: 1.2rem;
   line-height: 1;
   padding: 0 2px;
@@ -588,13 +589,13 @@ footer code {
 
 .file-empty {
   margin: 0;
-  color: rgba(112, 37, 115, 0.5);
+  color: var(--text-faint);
   font-size: 0.88rem;
   font-style: italic;
 }
 
 .required-mark {
-  color: #c03bc4;
+  color: var(--accent);
   margin-left: 2px;
 }
 
@@ -612,15 +613,15 @@ footer code {
 }
 
 .upload-toast--success {
-  background: linear-gradient(135deg, #e6f9f0 0%, #d4f5e5 100%);
-  border: 1px solid #a3d9b8;
-  color: #1a6640;
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
 }
 
 .upload-toast--error {
-  background: linear-gradient(135deg, #fee 0%, #fdd 100%);
-  border: 1px solid #fcc;
-  color: #c33;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
 }
 
 /* Smooth animations */

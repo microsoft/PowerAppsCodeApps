@@ -40,7 +40,7 @@
  * - Clarity: Clear boundaries between presentation, logic, and data access
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Header,
   ErrorMessage,
@@ -54,9 +54,15 @@ import { useContacts, useAccounts, useAccountsCrud } from './hooks';
 import './App.css';
 
 type ActivePage = 'contacts' | 'accounts';
+type Theme = 'light' | 'dark';
 
 function App() {
   const [activePage, setActivePage] = useState<ActivePage>('contacts');
+  const [theme, setTheme] = useState<Theme>('light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   // PATTERN: Custom hooks handle all the business logic and state management
   // The component stays simple and focused on rendering UI
@@ -100,7 +106,7 @@ function App() {
       />
 
       {/* Page Navigation Tabs */}
-      <nav className="page-tabs">
+      <nav className="page-tabs" style={{ justifyContent: 'space-between' }}>
         <button
           className={`tab-btn ${activePage === 'contacts' ? 'active' : ''}`}
           onClick={() => setActivePage('contacts')}
@@ -112,6 +118,13 @@ function App() {
           onClick={() => setActivePage('accounts')}
         >
           Accounts
+        </button>
+        <button
+          className="tab-btn"
+          onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
+          title="Toggle theme"
+        >
+          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
       </nav>
 

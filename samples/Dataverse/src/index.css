@@ -6,19 +6,83 @@
   font-family: 'Segoe UI', 'Segoe Sans Text', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   font-weight: 400;
-  color: #000000;
-  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Light theme tokens */
+  --bg-page: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+  --bg-section: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-secondary-btn: #f4f3f5;
+  --bg-attachment: rgba(197, 180, 227, 0.12);
+  --bg-file-current: rgba(197, 180, 227, 0.15);
+  --bg-lookup-field: linear-gradient(135deg, rgba(197, 180, 227, 0.08) 0%, rgba(213, 158, 215, 0.08) 100%);
+  --bg-lookup-field-hover: linear-gradient(135deg, rgba(197, 180, 227, 0.15) 0%, rgba(213, 158, 215, 0.15) 100%);
+  --bg-footer: linear-gradient(135deg, #ffffff 0%, #f4f3f5 100%);
+  --text-primary: #000000;
+  --text-secondary: #702573;
+  --text-muted: rgba(112, 37, 115, 0.7);
+  --text-faint: rgba(112, 37, 115, 0.5);
+  --accent: #c03bc4;
+  --accent-dark: #702573;
+  --accent-light: #c5b4e3;
+  --accent-medium: #d59ed7;
+  --border-color: rgba(197, 180, 227, 0.3);
+  --border-strong: rgba(197, 180, 227, 0.4);
+  --border-file: rgba(197, 180, 227, 0.5);
+  --error-bg: linear-gradient(135deg, #fee 0%, #fdd 100%);
+  --error-border: #fcc;
+  --error-text: #c33;
+  --success-bg: linear-gradient(135deg, #e6f9f0 0%, #d4f5e5 100%);
+  --success-border: #a3d9b8;
+  --success-text: #1a6640;
+  --shadow-section: rgba(112, 37, 115, 0.08);
+  --shadow-card: rgba(197, 180, 227, 0.3);
+  --tab-border: #c5b4e3;
+}
+
+[data-theme='dark'] {
+  --bg-page: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --bg-section: #1e1e2e;
+  --bg-card: #252535;
+  --bg-input: #2a2a3e;
+  --bg-secondary-btn: #2a2a3e;
+  --bg-attachment: rgba(197, 180, 227, 0.06);
+  --bg-file-current: rgba(197, 180, 227, 0.08);
+  --bg-lookup-field: linear-gradient(135deg, rgba(197, 180, 227, 0.05) 0%, rgba(213, 158, 215, 0.05) 100%);
+  --bg-lookup-field-hover: linear-gradient(135deg, rgba(197, 180, 227, 0.1) 0%, rgba(213, 158, 215, 0.1) 100%);
+  --bg-footer: linear-gradient(135deg, #1e1e2e 0%, #1a1a2e 100%);
+  --text-primary: #e0e0f0;
+  --text-secondary: #d59ed7;
+  --text-muted: rgba(213, 158, 215, 0.8);
+  --text-faint: rgba(213, 158, 215, 0.5);
+  --accent: #c03bc4;
+  --accent-dark: #d59ed7;
+  --accent-light: rgba(197, 180, 227, 0.3);
+  --accent-medium: #c03bc4;
+  --border-color: rgba(197, 180, 227, 0.12);
+  --border-strong: rgba(197, 180, 227, 0.2);
+  --border-file: rgba(197, 180, 227, 0.25);
+  --error-bg: linear-gradient(135deg, #2e1a1a 0%, #3a1f1f 100%);
+  --error-border: #8b3333;
+  --error-text: #ff9090;
+  --success-bg: linear-gradient(135deg, #1a2e22 0%, #1f3a2a 100%);
+  --success-border: #2e7a50;
+  --success-text: #6edfa0;
+  --shadow-section: rgba(0, 0, 0, 0.3);
+  --shadow-card: rgba(0, 0, 0, 0.3);
+  --tab-border: rgba(197, 180, 227, 0.25);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f4f3f5 0%, #e8e6ea 100%);
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
 * {
