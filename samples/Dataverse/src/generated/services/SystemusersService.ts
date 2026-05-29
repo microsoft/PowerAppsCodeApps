@@ -70,19 +70,6 @@ export class SystemusersService {
     });
   }
 
-  public static async upload(id: string, columnName: SystemusersUploadColumnName, file: File, fileDisplayName?: string): Promise<IOperationResult<void>> {
-    const arrayBuffer = await file.arrayBuffer();
-    const data = new Uint8Array(arrayBuffer);
-    const result = await SystemusersService.client.uploadFileToRecord(
-      SystemusersService.dataSourceName,
-      id,
-      columnName,
-      fileDisplayName || file.name,
-      data,
-    );
-    return result;
-  }
-
   public static async downloadImage(id: string, columnName: SystemusersImageColumnName, fullSize: boolean = false): Promise<IOperationResult<Uint8Array>> {
     const result = await SystemusersService.client.downloadImageFromRecord(
       SystemusersService.dataSourceName,
