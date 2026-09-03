@@ -1,0 +1,345 @@
+﻿@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --success: oklch(0.596 0.145 163.225);
+    --success-foreground: oklch(0.985 0 0);
+    --warning: oklch(0.666 0.179 58.318);
+    --warning-foreground: oklch(0.985 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --success: oklch(0.765 0.177 163.223);
+    --success-foreground: oklch(0.205 0 0);
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-foreground: oklch(0.205 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Accent palettes. Each theme only declares its brand color; the rules below
+   map it onto the semantic tokens for light and dark mode. */
+[data-theme="neutral"] {
+    --brand: oklch(0.205 0 0);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.922 0 0);
+    --brand-dark-foreground: oklch(0.205 0 0);
+    --brand-hue: 0;
+    --brand-chroma: 0;
+}
+
+[data-theme="blue"] {
+    --brand: oklch(0.546 0.245 262.881);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.546 0.245 262.881);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 259.815;
+    --brand-chroma: 0.16;
+}
+
+[data-theme="emerald"] {
+    --brand: oklch(0.596 0.145 163.225);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.596 0.145 163.225);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 162.48;
+    --brand-chroma: 0.13;
+}
+
+[data-theme="violet"] {
+    --brand: oklch(0.541 0.281 293.009);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.541 0.281 293.009);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 292.717;
+    --brand-chroma: 0.19;
+}
+
+[data-theme="indigo"] {
+    --brand: oklch(0.511 0.262 276.966);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.585 0.233 277.117);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 277.117;
+    --brand-chroma: 0.18;
+}
+
+[data-theme="cyan"] {
+    --brand: oklch(0.609 0.126 221.723);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.609 0.126 221.723);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 215.221;
+    --brand-chroma: 0.12;
+}
+
+[data-theme="rose"] {
+    --brand: oklch(0.586 0.253 17.585);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.586 0.253 17.585);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 16.439;
+    --brand-chroma: 0.18;
+}
+
+[data-theme="pink"] {
+    --brand: oklch(0.592 0.249 0.584);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.592 0.249 0.584);
+    --brand-dark-foreground: oklch(0.985 0 0);
+    --brand-hue: 354.308;
+    --brand-chroma: 0.19;
+}
+
+[data-theme="orange"] {
+    --brand: oklch(0.646 0.222 41.116);
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-dark: oklch(0.705 0.213 47.604);
+    --brand-dark-foreground: oklch(0.205 0 0);
+    --brand-hue: 47.604;
+    --brand-chroma: 0.17;
+}
+
+/* Amber is light enough that it needs dark text in both modes. */
+[data-theme="amber"] {
+    --brand: oklch(0.769 0.188 70.08);
+    --brand-foreground: oklch(0.205 0 0);
+    --brand-dark: oklch(0.769 0.188 70.08);
+    --brand-dark-foreground: oklch(0.205 0 0);
+    --brand-hue: 70.08;
+    --brand-chroma: 0.15;
+}
+
+:root[data-theme] {
+    --primary: var(--brand);
+    --primary-foreground: var(--brand-foreground);
+    --ring: var(--brand);
+    --sidebar-primary: var(--brand);
+    --sidebar-primary-foreground: var(--brand-foreground);
+    --chart-1: oklch(0.72 var(--brand-chroma) var(--brand-hue));
+    --chart-2: oklch(0.64 var(--brand-chroma) var(--brand-hue));
+    --chart-3: oklch(0.56 var(--brand-chroma) var(--brand-hue));
+    --chart-4: oklch(0.48 var(--brand-chroma) var(--brand-hue));
+    --chart-5: oklch(0.4 var(--brand-chroma) var(--brand-hue));
+}
+
+.dark[data-theme] {
+    --primary: var(--brand-dark);
+    --primary-foreground: var(--brand-dark-foreground);
+    --ring: var(--brand-dark);
+    --sidebar-primary: var(--brand-dark);
+    --sidebar-primary-foreground: var(--brand-dark-foreground);
+    --chart-1: oklch(0.8 var(--brand-chroma) var(--brand-hue));
+    --chart-2: oklch(0.72 var(--brand-chroma) var(--brand-hue));
+    --chart-3: oklch(0.64 var(--brand-chroma) var(--brand-hue));
+    --chart-4: oklch(0.56 var(--brand-chroma) var(--brand-hue));
+    --chart-5: oklch(0.48 var(--brand-chroma) var(--brand-hue));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+  /* Tailwind v4 drops the UA pointer cursor on buttons; restore it. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"]:not([aria-disabled="true"]),
+  label:has(> input[type="checkbox"]:not(:disabled)),
+  label:has(> input[type="radio"]:not(:disabled)) {
+    cursor: pointer;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion system
+   One vocabulary for every screen: content rises in, lists stagger, skeletons
+   shimmer. Durations stay under 400ms so the app never feels like it is
+   waiting on its own animation.
+--------------------------------------------------------------------------- */
+@theme {
+  --animate-rise: rise 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fade 0.24s ease-out both;
+  --animate-pop: pop 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.5rem, 0);
+    }
+  to {
+    opacity: 1;
+    transform: none;
+    }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    }
+  to {
+    opacity: 1;
+    }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+    }
+  to {
+    opacity: 1;
+    transform: none;
+    }
+}
+
+@keyframes shimmer {
+  50% {
+    opacity: 0.45;
+    }
+}
+
+@layer utilities {
+  /*
+   * Stagger children by their index. Set `--i` on each child; the cap keeps a
+   * long list from making the last row wait.
+   */
+  .stagger > * {
+    animation: var(--animate-rise);
+    animation-delay: calc(min(var(--i, 0) * 35ms, 420ms));
+    }
+}
+
+/*
+ * Honour the OS setting globally rather than per component, so nothing that
+ * gets added later can slip through and animate against the user's wishes.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    }
+}
