@@ -71,6 +71,7 @@ End-to-end example applications showing real-world patterns.
 | [`DataverseConnector`](./samples/DataverseConnector) | React, TypeScript, Dataverse connector | Dataverse access through the Microsoft Dataverse connector. |
 | [`DataverseContextRouting`](./samples/DataverseContextRouting) | React, TypeScript, Dataverse | Selects the initial Dataverse page from `getContext()` query parameters. |
 | [`tanstack-app`](./samples/tanstack-app) | React, TanStack Router, Vite | Routing-focused Code App sample. |
+| [`EnterpriseAppShell-ShadcnUI`](./samples/EnterpriseAppShell-ShadcnUI) | React 19, TypeScript, Tailwind CSS v4, shadcn/ui, React Router | Multi-app enterprise shell with 14 example apps behind one module registry. Delete an app in two steps, add one in three. |
 
 ---
 
