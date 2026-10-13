@@ -7,30 +7,31 @@ This repository has the start of a TypeScript app that already includes the Powe
 git clone https://github.com/microsoft/PowerAppsCodeApps.git
 cd PowerAppsCodeApps
 ```
-## 2. Authenticate PAC CLI and point to your first release environment
-
-```bash
-pac auth create --environment {environment id}
-```
-
-## 3. Install dependencies
+## 2. Install dependencies and authenticate
 
 ```bash
 cd samples/HelloWorld
 npm install
-pac code init
+pa auth login
+```
+
+## 3. Initialize the code app
+
+```bash
+pa app init --environment-id <environment-id> --display-name "Hello World"
 ```
 
 ## 4. Run locally
 
 ```bash
-npm run dev | pac code run
+pa app run
 ```
 
 ## 5. Deploy to Power Apps
 
 ```bash
-npm run build | pac code push
+npm run build
+pa app push
 ```
 
 If successful, this command should return a Power Apps URL to run the app. 
