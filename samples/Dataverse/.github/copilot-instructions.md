@@ -10,50 +10,50 @@ This guide explains how to initialize an app, add a data source using the Power 
 Use the following command to initialize an app:
 
 ```bash
-pac code init -n <app name> -env <environmentId>
+pa app init --display-name <app name> --environment-id <environmentId>
 ```
 
 **Example:**
 
 ```bash
-pac code init -n "Asset Tracker" -env "0aa4969d-c8e7-e0a7-9bf8-6925c5922de3"
+pa app init --display-name "Asset Tracker" --environment-id "<environment-id>"
 ```
 
 Use the following command to add a data source:
 
 ```bash
-pac code add-data-source -a <apiId> -c <connectionId>
+pa app add data-source --connector <apiId> --connection-id <connectionId>
 ```
 
 **Example:**
 
 ```bash
-pac code add-data-source -a "shared_office365users" -c "aa35d97110f747a49205461cbfcf8558"
+pa app add data-source --connector "shared_office365users" --connection-id "<connection-id>"
 ```
 
 If additional parameters such as table and dataset are required, use:
 
 ```bash
-pac code add-data-source -a <apiId> -c <connectionId> -t <tableName> -d <datasetName>
+pa app add data-source --connector <apiId> --connection-id <connectionId> --table <tableName> --dataset <datasetName>
 ```
 
 **Example:**
 
 ```bash
-pac code add-data-source -a "shared_sql" -c "12767db082494ab482618ce5703fe6e9" -t "[dbo].[MobileDeviceInventory]" -d "paconnectivitysql0425.database.windows.net,paruntimedb"
+pa app add data-source --connector "shared_sql" --connection-id "<connection-id>" --table "[dbo].[MobileDeviceInventory]" --dataset "<server-name>,<database-name>"
 ```
 
 Use the following command to publish an app:
 
 ```bash
 npm run build
-pac code push
+pa app push
 ```
 
 **Example:**
 
 ```bash
-pac code push
+pa app push
 ```
 
 ## Using Model and Service

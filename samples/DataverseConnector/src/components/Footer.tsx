@@ -1,0 +1,25 @@
+/**
+ * Footer Component
+ * Displays informational footer about the app
+ *
+ * PATTERN: Static Informational Component
+ * - No props or state
+ * - Provides context about the app's architecture
+ * - Educates developers about the service layer pattern
+ */
+
+declare const __APP_VERSION__: string;
+
+export function Footer() {
+  return (
+    <footer>
+      <p>
+        This app demonstrates CRUD operations and lookup field handling using the Microsoft
+        Dataverse connector. All operations go through the connector's generated{' '}
+        <code>MicrosoftDataverseService</code> (wrapped by <code>src/dataverse/client</code>),
+        keeping components pure and testable.
+      </p>
+      <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>v{__APP_VERSION__}</p>
+    </footer>
+  );
+}

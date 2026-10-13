@@ -1,7 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pac.cmd code add-data-source:*)",
+      "Bash(pa app add data-source:*)",
       "Bash(npm run build:*)",
       "Bash(tree:*)"
     ]
