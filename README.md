@@ -67,6 +67,10 @@ End-to-end example applications showing real-world patterns.
 | [`HelloWorld`](./samples/HelloWorld) | React, Vite, TypeScript | Basic starter showing Power Platform SDK integration. Best first read. |
 | [`FluentSample`](./samples/FluentSample) | React, Fluent UI v9, SQL, Office 365 | Full-featured app with connectors, custom API, SQL backend, and CI/CD. |
 | [`StaticAssetTracker`](./samples/StaticAssetTracker) | React, Tailwind CSS, Vite | Asset tracking app demonstrating management workflows and Tailwind styling. |
+| [`Dataverse`](./samples/Dataverse) | React, TypeScript, Dataverse | Native Dataverse CRUD, lookups, files, functions, and actions. |
+| [`DataverseConnector`](./samples/DataverseConnector) | React, TypeScript, Dataverse connector | Dataverse access through the Microsoft Dataverse connector. |
+| [`DataverseContextRouting`](./samples/DataverseContextRouting) | React, TypeScript, Dataverse | Selects the initial Dataverse page from `getContext()` query parameters. |
+| [`tanstack-app`](./samples/tanstack-app) | React, TanStack Router, Vite | Routing-focused Code App sample. |
 
 ---
 
@@ -94,4 +98,3 @@ End-to-end tests for the templates, using [Playwright](https://playwright.dev/).
 Images and static assets used in documentation.
 
 ---
-

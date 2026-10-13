@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Power Apps environment and generated data-source artifacts
+power.config.json
+.power/
+src/generated/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
