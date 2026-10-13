@@ -49,7 +49,7 @@ This plan outlines the implementation of the FluentSample Power Apps Code App - 
   ```json
   {
     "scripts": {
-      "dev": "start vite && start pac code run",
+      "dev": "vite",
       "build": "tsc -b && vite build",
       "lint": "eslint .",
       "preview": "vite preview"

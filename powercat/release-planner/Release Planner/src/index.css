@@ -1,0 +1,18 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  display: block;
+  background: #f3f2f1;
+}
+
+#root {
+  min-height: 100vh;
+}

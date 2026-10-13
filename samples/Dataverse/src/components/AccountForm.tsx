@@ -17,6 +17,7 @@
 import { useState, useEffect, useRef } from 'react';
 import type { Accounts, AccountsUploadColumnName, AccountsFileColumnName, AccountsImageColumnName } from '../generated/models/AccountsModel';
 import { AccountsService } from '../generated/services/AccountsService';
+import { ACCOUNT_FILE_COLUMN } from '../config';
 
 export interface AccountFormData {
   name: string;
@@ -42,6 +43,17 @@ interface Toast {
   type: 'success' | 'error';
 }
 
+const hasAccountFileColumn = ACCOUNT_FILE_COLUMN.trim().length > 0;
+const accountFileColumn = ACCOUNT_FILE_COLUMN as AccountsFileColumnName;
+const defaultUploadColumn = (
+  hasAccountFileColumn ? accountFileColumn : 'entityimage'
+) as AccountsUploadColumnName;
+
+function getAccountString(account: Accounts | null, columnName: string): string | undefined {
+  const value = (account as unknown as Record<string, unknown> | null)?.[columnName];
+  return typeof value === 'string' ? value : undefined;
+}
+
 export function AccountForm({
   selectedAccount,
   isCreating,
@@ -64,7 +76,7 @@ export function AccountForm({
 
   // --- Attachment sub-form state ---
   const [attachmentFile, setAttachmentFile] = useState<File | null>(null);
-  const [columnName, setColumnName] = useState<AccountsUploadColumnName>('crd1b_accountfileattachment');
+  const [columnName, setColumnName] = useState<AccountsUploadColumnName>(defaultUploadColumn);
   const [fileDisplayName, setFileDisplayName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [isClearingFile, setIsClearingFile] = useState(false);
@@ -102,7 +114,7 @@ export function AccountForm({
     }
     // Reset attachment state when account changes
     setAttachmentFile(null);
-    setColumnName('crd1b_accountfileattachment');
+    setColumnName(defaultUploadColumn);
     setFileDisplayName('');
   }, [selectedAccount, isCreating]);
 
@@ -140,7 +152,7 @@ export function AccountForm({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     setAttachmentFile(file);
-    setColumnName('crd1b_accountfileattachment');
+    setColumnName(defaultUploadColumn);
     setFileDisplayName('');
   };
 
@@ -226,7 +238,7 @@ export function AccountForm({
         onUploadSuccess?.();
         // Reset attachment fields on success
         setAttachmentFile(null);
-        setColumnName('crd1b_accountfileattachment');
+        setColumnName(defaultUploadColumn);
         setFileDisplayName('');
         // Reset the file input element
         const fileInput = document.getElementById('attachment-file') as HTMLInputElement;
@@ -241,6 +253,10 @@ export function AccountForm({
       setIsUploading(false);
     }
   };
+
+  const accountFileName = hasAccountFileColumn
+    ? getAccountString(selectedAccount, `${ACCOUNT_FILE_COLUMN}_name`)
+    : undefined;
 
   return (
     <section className="contact-form">
@@ -360,36 +376,42 @@ export function AccountForm({
         <div className="attachment-subform">
           <h3>Attachments</h3>
 
-          {/* Current file stored in crd1b_accountfileattachment */}
-          <div className="form-group">
-            <label>crd1b_accountfileattachment (current value)</label>
-            {selectedAccount.crd1b_accountfileattachment_name ? (
-              <div className="file-current">
-                <span className="file-current-icon">📄</span>
-                <span className="file-current-name">{selectedAccount.crd1b_accountfileattachment_name}</span>
-                <button
-                  type="button"
-                  className="file-action-btn"
-                  onClick={() => handleDownload('crd1b_accountfileattachment', selectedAccount.crd1b_accountfileattachment_name!)}
-                  disabled={downloadingCol === 'crd1b_accountfileattachment'}
-                  title="Download file"
-                >
-                  {downloadingCol === 'crd1b_accountfileattachment' ? '…' : '⬇'}
-                </button>
-                <button
-                  type="button"
-                  className="file-clear-btn"
-                  onClick={() => handleClearFile('crd1b_accountfileattachment')}
-                  disabled={isClearingFile}
-                  title="Remove file"
-                >
-                  {isClearingFile ? '…' : '×'}
-                </button>
-              </div>
-            ) : (
-              <p className="file-empty">No file uploaded yet.</p>
-            )}
-          </div>
+          {hasAccountFileColumn ? (
+            <div className="form-group">
+              <label>{ACCOUNT_FILE_COLUMN} (current value)</label>
+              {accountFileName ? (
+                <div className="file-current">
+                  <span className="file-current-icon">📄</span>
+                  <span className="file-current-name">{accountFileName}</span>
+                  <button
+                    type="button"
+                    className="file-action-btn"
+                    onClick={() => handleDownload(accountFileColumn, accountFileName)}
+                    disabled={downloadingCol === accountFileColumn}
+                    title="Download file"
+                  >
+                    {downloadingCol === accountFileColumn ? '…' : '⬇'}
+                  </button>
+                  <button
+                    type="button"
+                    className="file-clear-btn"
+                    onClick={() => handleClearFile(accountFileColumn)}
+                    disabled={isClearingFile}
+                    title="Remove file"
+                  >
+                    {isClearingFile ? '…' : '×'}
+                  </button>
+                </div>
+              ) : (
+                <p className="file-empty">No file uploaded yet.</p>
+              )}
+            </div>
+          ) : (
+            <p className="file-empty">
+              File-column operations are disabled. Set <code>ACCOUNT_FILE_COLUMN</code> in{' '}
+              <code>src/config.ts</code> as described in the README.
+            </p>
+          )}
 
           {/* Current image stored in entityimage */}
           <div className="form-group">
@@ -450,7 +472,9 @@ export function AccountForm({
                   value={columnName}
                   onChange={(e) => setColumnName(e.target.value as AccountsUploadColumnName)}
                 >
-                  <option value="crd1b_accountfileattachment">crd1b_accountfileattachment</option>
+                  {hasAccountFileColumn && (
+                    <option value={accountFileColumn}>{ACCOUNT_FILE_COLUMN}</option>
+                  )}
                   <option value="entityimage">entityimage</option>
                 </select>
                 <small>The schema name of the file/image column to upload to</small>
