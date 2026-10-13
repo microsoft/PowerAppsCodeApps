@@ -2,7 +2,7 @@
  * Domain types for the Dataverse tables this app uses.
  *
  * The Dataverse *connector* returns untyped OData rows (Record<string, unknown>), so unlike the
- * native `pac`-generated models, these interfaces are hand-authored to describe exactly the columns
+ * native Power Apps CLI-generated models, these interfaces are hand-authored to describe exactly the columns
  * this UI reads and writes. Field names match the Dataverse Web API (OData) column logical names.
  *
  * Lookup fields follow the OData convention:
