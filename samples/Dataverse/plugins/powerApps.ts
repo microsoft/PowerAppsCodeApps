@@ -104,7 +104,7 @@ function getPowerConfig(server: ViteDevServer): PowerConfig {
     // Handle specific error types
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       throw new Error(
-        `Missing file. Ensure you have run 'pac code init' first. power.config.json expected at ${configPath}.`,
+        `Missing file. Ensure you have run 'pa app init' first. power.config.json expected at ${configPath}.`,
       );
     }
     if (error instanceof SyntaxError) {
