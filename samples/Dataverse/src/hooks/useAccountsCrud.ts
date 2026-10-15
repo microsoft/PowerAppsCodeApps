@@ -23,10 +23,14 @@ import { useState, useEffect, useRef } from 'react';
 import { AccountsService } from '../generated/services/AccountsService';
 import type { Accounts } from '../generated/models/AccountsModel';
 import type { AccountFormData } from '../components/AccountForm';
+import { ACCOUNT_FILE_COLUMN } from '../config';
 
 // Constants for query limits
 const MAX_ACCOUNTS_TO_LOAD = 50;
 const DEFAULT_SORT_ORDER = 'createdon desc';
+const ACCOUNT_FILE_SELECT_COLUMNS = ACCOUNT_FILE_COLUMN
+  ? [ACCOUNT_FILE_COLUMN, `${ACCOUNT_FILE_COLUMN}_name`]
+  : [];
 
 export function useAccountsCrud() {
   const [accounts, setAccounts] = useState<Accounts[]>([]);
@@ -73,8 +77,7 @@ export function useAccountsCrud() {
           'createdon',
           'modifiedon',
           '_createdby_value',
-          'crd1b_accountfileattachment',
-          'crd1b_accountfileattachment_name',
+          ...ACCOUNT_FILE_SELECT_COLUMNS,
           'entityimage',
         ],
         orderBy: [DEFAULT_SORT_ORDER],
@@ -85,7 +88,7 @@ export function useAccountsCrud() {
         setAccounts(result.data);
         const currentId = selectedAccountRef.current?.accountid;
         if (currentId) {
-          // Refresh the selected account so fields like crd1b_accountfileattachment_name are up to date
+          // Refresh the selected account so file and image fields are up to date
           const refreshed = result.data.find(a => a.accountid === currentId);
           if (refreshed) setSelectedAccount(refreshed);
         } else if (result.data.length > 0) {
