@@ -1,11 +1,11 @@
 # Building This Demo from Scratch
 
-This guide walks through recreating the Dataverse Demo App step by step using the PAC CLI and the official Power Apps Code Apps Vite template.
+This guide walks through recreating the Dataverse Demo App step by step using the Power Apps CLI and the official Power Apps Code Apps Vite template.
 
 ## Prerequisites
 
 - Node.js v22 or higher
-- Power Platform CLI (`pac`) authenticated to your environment
+- Power Apps CLI (`pa` from `@microsoft/power-apps-cli`)
 
 ---
 
@@ -26,7 +26,8 @@ This gives you a React + TypeScript + Vite project with `@microsoft/power-apps` 
 ## Step 2: Initialize the Power Apps Code App
 
 ```bash
-pac code init --displayname "Dataverse Demo App"
+pa auth login
+pa app init --environment-id <environment-id> --display-name "Dataverse Demo App"
 ```
 
 Follow the prompts to authenticate and select your environment. This creates `power.config.json` with your environment ID and app configuration.
@@ -35,14 +36,14 @@ Follow the prompts to authenticate and select your environment. This creates `po
 
 ## Step 3: Add Dataverse data sources
 
-Use the PAC CLI to generate TypeScript services and models for each Dataverse table you want to use:
+Use the Power Apps CLI to generate TypeScript services and models for each Dataverse table you want to use:
 
 ```bash
-pac code add-data-source -a dataverse -t contact
-pac code add-data-source -a dataverse -t account
-pac code add-data-source -a dataverse -t systemuser
-pac code add-data-source -a dataverse -t transactioncurrency
-pac code add-data-source -a dataverse -t team
+pa app add data-source --connector dataverse --table contact
+pa app add data-source --connector dataverse --table account
+pa app add data-source --connector dataverse --table systemuser
+pa app add data-source --connector dataverse --table transactioncurrency
+pa app add data-source --connector dataverse --table team
 ```
 
 Each command generates:
@@ -62,7 +63,7 @@ Structure your `src/` folder with three layers:
 src/
 ├── components/   ← UI only, no business logic
 ├── hooks/        ← State, async ops, service calls
-└── generated/    ← PAC CLI output, do not edit
+└── generated/    ← Power Apps CLI output, do not edit
 ```
 
 **Create components** (`src/components/`):
@@ -142,7 +143,7 @@ See [LOOKUPS.md](./LOOKUPS.md) for the full explanation, naming conventions, and
 
 **Run locally:**
 ```bash
-npm run dev
+pa app run
 ```
 
 Open the **Local Play** URL from the terminal output in the same browser as your Power Platform tenant.
@@ -150,7 +151,7 @@ Open the **Local Play** URL from the terminal output in the same browser as your
 **Deploy to Power Apps:**
 ```bash
 npm run build
-pac code push
+pa app push
 ```
 
 ---
@@ -160,7 +161,7 @@ pac code push
 | Topic | Pattern used |
 |-------|-------------|
 | Architecture | Three layers: Components (UI) → Hooks (Logic) → Services (Data) |
-| Generated services | Always use PAC CLI services — never raw fetch or axios |
+| Generated services | Always use Power Apps CLI services — never raw fetch or axios |
 | Query options | Use `select`, `top`, `orderBy` on every `getAll()` call |
 | Lookup writing | `@odata.bind` syntax: `/accounts(guid)` or `null` to clear |
 | Lookup reading | Store `_field_value` GUIDs; resolve to names with individual `get()` |
@@ -172,4 +173,4 @@ pac code push
 
 - [Create an app from scratch](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/create-an-app-from-scratch)
 - [Connect to Dataverse](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/connect-to-dataverse)
-- [Power Platform CLI Reference](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)
+- [Power Apps CLI Reference](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)

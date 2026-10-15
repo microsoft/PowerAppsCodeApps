@@ -225,7 +225,7 @@ ContactCard re-renders with display names
 ### 1. Add the data source (if not already added)
 
 ```bash
-pac code add-data-source -a dataverse -t <table-logical-name>
+pa app add data-source --connector dataverse --table <table-logical-name>
 ```
 
 This generates `src/generated/services/<Table>Service.ts` and `src/generated/models/<Table>Model.ts`.
@@ -275,14 +275,14 @@ contact._newlookupfield_value &&
 
 ## Data Sources Added for This Demo
 
-These PAC CLI commands were used to generate the services and models used by the lookup resolver:
+These Power Apps CLI commands were used to generate the services and models used by the lookup resolver:
 
 ```bash
-pac code add-data-source -a dataverse -t contact
-pac code add-data-source -a dataverse -t account
-pac code add-data-source -a dataverse -t systemuser
-pac code add-data-source -a dataverse -t transactioncurrency
-pac code add-data-source -a dataverse -t team
+pa app add data-source --connector dataverse --table contact
+pa app add data-source --connector dataverse --table account
+pa app add data-source --connector dataverse --table systemuser
+pa app add data-source --connector dataverse --table transactioncurrency
+pa app add data-source --connector dataverse --table team
 ```
 
 ---

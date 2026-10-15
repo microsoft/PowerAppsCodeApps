@@ -24,7 +24,7 @@ This template demonstrates:
 - **Power Apps environment** with Code Apps enabled - [Create a first release environment](../../README.md#create-a-first-release-power-platform-environment)
 - **Node.js** (LTS version) and **npm**
 - **Git** for version control
-- **Power Apps CLI** (`pac` command available)
+- **Power Apps CLI** (`pa` command from `@microsoft/power-apps-cli`)
 
 > [!IMPORTANT]
 > **Before connecting to real data, be sure to:**
@@ -67,7 +67,7 @@ This ensures the project compiles successfully before running.
 ## 3. Initialize Power Apps Code integration
 
 ```bash
-pac code init
+pa app init
 ```
 
 This sets up the Power Apps Code integration for local development.
@@ -75,17 +75,17 @@ This sets up the Power Apps Code integration for local development.
 ## 4. Run locally
 
 ```bash
-npm run dev
+pa app run
 ```
 
-This will start both Vite dev server and PAC Code Run automatically for local development and testing.
+This will start both Vite dev server and Power Apps local runtime automatically for local development and testing.
 
 ![Init and run the app locally](contentMedia/2-install_init_run.gif)
 
 ## 5. Deploy to Power Apps (Optional)
 
 ```bash
-pac code push
+pa app push
 ```
 
 This deploys your app to the Power Apps environment. If successful, this command will return a Power Apps URL where others can access your app.

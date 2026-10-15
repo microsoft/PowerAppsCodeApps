@@ -171,13 +171,30 @@ export interface EntityInfo {
   displayName: string
 }
 
+type GetEntitiesResult = {
+  success?: boolean;
+  data?: unknown;
+  error?: { message?: string };
+};
+
+type DataverseServiceWithEntityMetadata = typeof MicrosoftDataverseService & {
+  GetEntitiesWithOrganization?: (organization: string) => Promise<GetEntitiesResult>;
+};
+
 /**
  * List all tables (entities) in the environment via the connector's `GetEntities` metadata
- * operation — a read-only capability the connector exposes directly.
+ * operation when it is exposed by the current connector metadata.
  */
 export async function listEntities(): Promise<EntityInfo[]> {
   const org = await getOrgUrl()
-  const result = await MicrosoftDataverseService.GetEntitiesWithOrganization(org)
+  const getEntities = (MicrosoftDataverseService as DataverseServiceWithEntityMetadata)
+    .GetEntitiesWithOrganization
+  if (!getEntities) {
+    throw new Error(
+      'The current Microsoft Dataverse connector metadata does not expose GetEntities.',
+    )
+  }
+  const result = await getEntities(org)
   // The generated model types these fields in PascalCase, but the connector returns camelCase
   // at runtime, so we read the payload as an untyped record.
   const data = unwrap<unknown>(result) as {
