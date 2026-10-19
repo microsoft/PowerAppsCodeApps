@@ -1,0 +1,43 @@
+{
+  "appId": "",
+  "appDisplayName": "code-app-dataverse",
+  "description": null,
+  "environmentId": "replace-with-yours",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": ".\\src\\assets\\react.svg",
+  "localAppUrl": "http://localhost:3000/",
+  "connectionReferences": {
+    "ca8d5b93-3d31-4ed0-a0d8-64b2e9cb85a7": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365users",
+      "displayName": "Office 365 Users",
+      "dataSources": [
+        "office365users"
+      ],
+      "authenticationType": null,
+      "sharedConnectionId": null,
+      "dataSets": {}
+    }
+  },
+  "databaseReferences": {
+    "default.cds": {
+      "state": "Configured",
+      "instanceUrl": "https://replace-with-yours.crm.dynamics.com/",
+      "webApiVersion": "v9.0",
+      "dataSources": {
+        "accounts": {
+          "entitySetName": "accounts",
+          "logicalName": "account",
+          "isHidden": false
+        },
+        "contacts": {
+          "entitySetName": "contacts",
+          "logicalName": "contact",
+          "isHidden": false
+        }
+      },
+      "version": "v9.0",
+      "environmentVariableName": ""
+    }
+  }
+}
